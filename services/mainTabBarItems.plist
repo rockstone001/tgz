@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<array>
+	<dict>
+		<key>icon</key>
+		<string>tabbar_home</string>
+		<key>iconSelected</key>
+		<string>tabbar_home_selected</string>
+		<key>title</key>
+		<string>服务圈</string>
+		<key>tag</key>
+		<string>0</string>
+	</dict>
+	<dict>
+		<key>icon</key>
+		<string>tabbar_message_center</string>
+		<key>iconSelected</key>
+		<string>tabbar_message_center_selected</string>
+		<key>title</key>
+		<string>消息</string>
+		<key>tag</key>
+		<string>1</string>
+	</dict>
+	<dict>
+		<key>backgroundImage</key>
+		<string>tabbar_compose_button</string>
+		<key>backgroundImageSelected</key>
+		<string>tabbar_compose_button_highlighted</string>
+		<key>icon</key>
+		<string>tabbar_compose_icon_add</string>
+		<key>iconSelected</key>
+		<string>tabbar_compose_background_icon_add</string>
+	</dict>
+	<dict>
+		<key>icon</key>
+		<string>tabbar_discover</string>
+		<key>iconSelected</key>
+		<string>tabbar_discover_selected</string>
+		<key>title</key>
+		<string>发现</string>
+		<key>tag</key>
+		<string>2</string>
+	</dict>
+	<dict>
+		<key>icon</key>
+		<string>tabbar_profile</string>
+		<key>iconSelected</key>
+		<string>tabbar_profile_selected</string>
+		<key>title</key>
+		<string>我</string>
+		<key>tag</key>
+		<string>3</string>
+	</dict>
+</array>
+</plist>

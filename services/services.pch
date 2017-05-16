@@ -1,0 +1,55 @@
+//
+//  services.pch
+//  services
+//
+//  Created by lqzhuang on 17/5/1.
+//  Copyright © 2017年 lqzhuang. All rights reserved.
+//
+
+#ifndef services_pch
+#define services_pch
+
+// Include any system framework and library headers here that should be included in all compilation units.
+// You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
+
+//导入
+#import "UIButton+Badge.h"
+#import "AFURLSessionManager.h"
+#import "NSString+extension.h"
+
+//api 基础地址
+//#define kAPIHost @"http://127.0.0.1:8000/ci/services/api/index.php/"
+#define kAPIHost @"http://192.168.1.3:8000/ci/services/api/index.php/"
+//获取服务圈 我关注的服务商的 朋友圈
+#define kGetMySerices @"services/get_my_services"
+//获取最新的朋友圈
+#define kGetMyServicesNew @"services/get_my_services_new"
+
+//获取热门关注商户
+#define kGetHotMerchants @"services/get_hot_merchants"
+
+//获取搜索结果
+#define kGetSearchResult @"services/get_search_result"
+
+//点赞
+#define kLike @"services/like"
+//取消点赞
+#define kUnlike @"services/unlike"
+
+#define kTextSize 14
+#define kSubTextSize 12
+//定义button的文字大小
+#define kButtonFontSize 15
+//定义搜索框高度
+#define kSearchBarHeight 44
+
+#define kSearchPlaceHolder @"搜索您感兴趣的商家"
+#define kCancelText @"取消"
+
+//定义颜色
+#define kLightGray [UIColor colorWithRed:123/255.0 green:123/255.0 blue:123/255.0 alpha:1]
+#define kLightGrayBG [UIColor colorWithRed:247/255.0 green:247/255.0 blue:247/255.0 alpha:1]
+#define kLightBlue [UIColor colorWithRed:93/255.0 green:112/255.0 blue:151/255.0 alpha:1]
+#define kSpacingLineColor [UIColor colorWithRed:217/255.0 green:217/255.0 blue:217/255.0 alpha:1]
+#define kSearchBarColor [UIColor colorWithRed:201/255.0 green:201/255.0 blue:206/255.0 alpha:1]
+#endif /* services_pch */
