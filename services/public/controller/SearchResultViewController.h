@@ -7,9 +7,17 @@
 //
 
 #import <UIKit/UIKit.h>
+//#import "SearchController.h"
+#import "SearchViewController.h"
+#import "ServiceInfoCell.h"
+#import "DetailViewController.h"
+#import "ServiceInfo.h"
+#import "PhotoBrowserController.h"
 
-@interface SearchResultViewController : UITableViewController
+@interface SearchResultViewController : UITableViewController <ServiceInfoCellDelegate, ServiceInfoCollectionCellDelegate, SearchViewDelegate>
 
 @property (nonatomic, strong) NSArray *data;
+
+-(void)getSearchResult:(NSString *)keyword;
 
 @end

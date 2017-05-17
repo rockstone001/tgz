@@ -10,6 +10,7 @@
 //#import "PhotoBrowser.h"
 #import "UIImageView+WebCache.h"
 #import "UIScrollView+touch.h"
+#import "SearchController.h"
 
 @interface PhotoBrowserController () <UIScrollViewDelegate>
 
@@ -24,6 +25,7 @@
 //    self.view = [[PhotoBrowser alloc] initWithFrame:[UIScreen mainScreen].bounds];
 //    self.view.backgroundColor = [UIColor blueColor];
     [self initView];
+    NSLog(@"%@", NSStringFromCGRect(self.scrollView.frame));
 }
 
 - (void)didReceiveMemoryWarning {
@@ -33,7 +35,8 @@
 
 -(void)initView
 {
-    UIScrollView *scrollView = [[UIScrollView alloc] initWithFrame:self.view.frame];
+    CGRect frame = [UIScreen mainScreen].bounds;
+    UIScrollView *scrollView = [[UIScrollView alloc] initWithFrame:frame];
     self.scrollView = scrollView;
     //设置scroll代理
 //    PhotoBrowserDelegate *delegate = [[PhotoBrowserDelegate alloc] init];
@@ -41,7 +44,7 @@
     self.scrollView.delegate = self;
 //    self.scrollDelegate = delegate;
     
-    self.scrollView.contentSize = CGSizeMake(self.view.frame.size.width * self.images.count, self.view.frame.size.height);
+    self.scrollView.contentSize = CGSizeMake(frame.size.width * self.images.count, frame.size.height);
     self.scrollView.pagingEnabled = YES;
     self.scrollView.backgroundColor = [UIColor colorWithRed:1/255.0 green:1/255.0 blue:1/255.0 alpha:.7];
     
@@ -129,6 +132,10 @@
 
 -(void)touchesEnded:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
 {
+    if ([self.parentViewController isKindOfClass:[SearchController class]]) {
+        SearchController *svc = (SearchController *)self.parentViewController;
+        svc.searchBar.hidden = NO;
+    }
     [self.view removeFromSuperview];
     [self removeFromParentViewController];
 }

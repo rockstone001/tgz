@@ -8,10 +8,8 @@
 
 #import "MyFollowViewController.h"
 #import "ServiceInfoController.h"
-#import "MyFollowHeaderViewController.h"
 #import "DetailViewController.h"
-#define kInfoCellID @"serviceInfoCell"
-#define kCellMarginBottom 10
+#import "MyFollowHeaderViewController.h"
 #define kRefreshHeight 75
 
 @interface MyFollowViewController () <ServiceInfoCellDelegate>
@@ -45,13 +43,16 @@
     
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
-    self.view.backgroundColor = [UIColor whiteColor];
     
     MyFollowHeaderViewController *hvc = [[MyFollowHeaderViewController alloc] init];
     [hvc setViewFrame:CGRectMake(0, 0, self.view.frame.size.width, [hvc getHeaderHeight])];
     [self addChildViewController:hvc];
     self.tableView.tableHeaderView = [[UIView alloc] initWithFrame:hvc.view.frame];
     [self.tableView.tableHeaderView addSubview:hvc.view];
+    
+    
+    self.view.backgroundColor = [UIColor whiteColor];
+    
     [self refreshList];
     
     [self loadRefreshView];
@@ -82,6 +83,7 @@
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     cell.collectionDelegate = (ServiceInfoController *)self.parentViewController;
     cell.delegate = self;
+//    cell.backgroundColor = [UIColor redColor];
     
     return cell;
 }
@@ -136,7 +138,7 @@
 
 -(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
 {
-    return 10;
+    return 0;
 }
 
 
@@ -246,5 +248,6 @@
     DetailViewController *dvc = [[DetailViewController alloc] init];
     [self.navigationController pushViewController:dvc animated:YES];
 }
+
 
 @end

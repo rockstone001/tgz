@@ -7,10 +7,8 @@
 //
 
 #import "SearchController.h"
-#import "SearchHistoryView.h"
-#import "SearchResultViewController.h"
 
-@interface SearchController () <UISearchResultsUpdating, SearchHistoryDelegate>
+@interface SearchController ()
 
 @end
 
@@ -29,7 +27,7 @@
 //     setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIColor whiteColor], UITextAttributeTextColor,[NSValue valueWithUIOffset:UIOffsetMake(0, 1)],UITextAttributeTextShadowOffset,nil]
 //     forState:UIControlStateNormal];
 //    self.searchBar.barTintColor = [UIColor blueColor];
-//    [self.searchBar setValue:[UIColor redColor] forKey:@"_cancelButtonColor"];
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -56,11 +54,11 @@
         srvc.tableView.tableHeaderView = historyView;
         srvc.data = nil;
         [srvc.tableView reloadData];
-        srvc.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+//        srvc.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     } else {
         srvc.tableView.tableHeaderView = nil;
         [self getSearchResult:keyword];
-        srvc.tableView.separatorStyle = UITableViewCellSeparatorStyleSingleLine;
+//        srvc.tableView.separatorStyle = UITableViewCellSeparatorStyleSingleLine;
     }
 }
 
@@ -91,7 +89,7 @@
         if (responseObject[@"code"] && [responseObject[@"code"] integerValue] == 0) {
             NSMutableArray *arr = [NSMutableArray array];
             for (NSDictionary *dict in responseObject[@"msg"]) {
-                [arr addObject:dict];
+                [arr addObject:[ServiceInfo serviceInfo:dict]];
             }
             SearchResultViewController *srvc = (SearchResultViewController *)self.searchResultsController;
             srvc.data = arr;

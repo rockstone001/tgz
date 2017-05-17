@@ -7,8 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "SearchHistoryView.h"
+#import "ServiceInfo.h"
+#import "SearchResultViewController.h"
 
-@interface SearchController : UISearchController
+@interface SearchController : UISearchController <UISearchResultsUpdating,SearchHistoryDelegate>
 
 @property (nonatomic, strong) UIViewController *previousVC;
 

@@ -17,6 +17,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    self.navigationController.navigationBar.hidden = NO;
     [self initNavButton];
     self.view.backgroundColor = [UIColor greenColor];
 }

@@ -58,6 +58,8 @@
 		DC3457F61EB730F000D82E2D /* UIButton+Badge.m in Sources */ = {isa = PBXBuildFile; fileRef = DC3457F41EB730F000D82E2D /* UIButton+Badge.m */; };
 		DC3457FD1EB832CB00D82E2D /* NavButton.m in Sources */ = {isa = PBXBuildFile; fileRef = DC3457FC1EB832CB00D82E2D /* NavButton.m */; };
 		DC3458001EB8429000D82E2D /* NavCenterBar.m in Sources */ = {isa = PBXBuildFile; fileRef = DC3457FF1EB8429000D82E2D /* NavCenterBar.m */; };
+		DCCB60961ECC7142003A3B86 /* SearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DCCB60951ECC7142003A3B86 /* SearchViewController.m */; };
+		DCCB60991ECC94EC003A3B86 /* UITableView+touch.m in Sources */ = {isa = PBXBuildFile; fileRef = DCCB60981ECC94EC003A3B86 /* UITableView+touch.m */; };
 		DCD15D251EC036E50071BE0E /* NSString+extension.m in Sources */ = {isa = PBXBuildFile; fileRef = DCD15D241EC036E50071BE0E /* NSString+extension.m */; };
 		DCD15D2D1EC2FE220071BE0E /* UIScrollView+touch.m in Sources */ = {isa = PBXBuildFile; fileRef = DCD15D2C1EC2FE220071BE0E /* UIScrollView+touch.m */; };
 		DCD15D331EC43D160071BE0E /* SearchBar.m in Sources */ = {isa = PBXBuildFile; fileRef = DCD15D321EC43D160071BE0E /* SearchBar.m */; };
@@ -182,6 +184,10 @@
 		DC3457FC1EB832CB00D82E2D /* NavButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NavButton.m; sourceTree = "<group>"; };
 		DC3457FE1EB8429000D82E2D /* NavCenterBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NavCenterBar.h; sourceTree = "<group>"; };
 		DC3457FF1EB8429000D82E2D /* NavCenterBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NavCenterBar.m; sourceTree = "<group>"; };
+		DCCB60941ECC7142003A3B86 /* SearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchViewController.h; sourceTree = "<group>"; };
+		DCCB60951ECC7142003A3B86 /* SearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchViewController.m; sourceTree = "<group>"; };
+		DCCB60971ECC94EC003A3B86 /* UITableView+touch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITableView+touch.h"; sourceTree = "<group>"; };
+		DCCB60981ECC94EC003A3B86 /* UITableView+touch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableView+touch.m"; sourceTree = "<group>"; };
 		DCD15D231EC036E50071BE0E /* NSString+extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSString+extension.h"; path = "../../../../../oc/0118-QQ聊天/0118-QQ聊天/NSString+extension.h"; sourceTree = "<group>"; };
 		DCD15D241EC036E50071BE0E /* NSString+extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSString+extension.m"; path = "../../../../../oc/0118-QQ聊天/0118-QQ聊天/NSString+extension.m"; sourceTree = "<group>"; };
 		DCD15D2B1EC2FE220071BE0E /* UIScrollView+touch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+touch.h"; sourceTree = "<group>"; };
@@ -282,6 +288,8 @@
 				DCD15D241EC036E50071BE0E /* NSString+extension.m */,
 				DCD15D2B1EC2FE220071BE0E /* UIScrollView+touch.h */,
 				DCD15D2C1EC2FE220071BE0E /* UIScrollView+touch.m */,
+				DCCB60971ECC94EC003A3B86 /* UITableView+touch.h */,
+				DCCB60981ECC94EC003A3B86 /* UITableView+touch.m */,
 				DC3457BF1EB72C0D00D82E2D /* SDWebImage */,
 				DC3457A01EB4C11E00D82E2D /* UIKit+AFNetworking */,
 				DC34578C1EB4C10800D82E2D /* AFNetworking */,
@@ -627,6 +635,8 @@
 				DCD15D501EC8A11C0071BE0E /* SearchController.m */,
 				DCD15D521EC936F10071BE0E /* SearchResultViewController.h */,
 				DCD15D531EC936F10071BE0E /* SearchResultViewController.m */,
+				DCCB60941ECC7142003A3B86 /* SearchViewController.h */,
+				DCCB60951ECC7142003A3B86 /* SearchViewController.m */,
 			);
 			path = controller;
 			sourceTree = "<group>";
@@ -752,7 +762,9 @@
 				DC3457E61EB72C0D00D82E2D /* SDWebImageDownloader.m in Sources */,
 				DC3457E21EB72C0D00D82E2D /* NSData+ImageContentType.m in Sources */,
 				DC34578B1EB48F0300D82E2D /* TabBarCenterButton.m in Sources */,
+				DCCB60961ECC7142003A3B86 /* SearchViewController.m in Sources */,
 				DCD15D251EC036E50071BE0E /* NSString+extension.m in Sources */,
+				DCCB60991ECC94EC003A3B86 /* UITableView+touch.m in Sources */,
 				DC3458001EB8429000D82E2D /* NavCenterBar.m in Sources */,
 				DC3457BA1EB4C11E00D82E2D /* UIImageView+AFNetworking.m in Sources */,
 				DC3457F61EB730F000D82E2D /* UIButton+Badge.m in Sources */,

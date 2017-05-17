@@ -8,7 +8,8 @@
 
 #import "MyFollowHeaderViewController.h"
 #import "SearchBar.h"
-#import "SearchController.h"
+#import "SearchViewController.h"
+//#import "SearchController.h"
 #import "SearchResultViewController.h"
 #define kHotTitleLabelHeight 35
 #define kHotScrollViewHeight 60
@@ -24,18 +25,18 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     [self initView];
-//    NSLog(@"%@", NSStringFromCGRect(self.view.frame));
-    [self getHotMerchants];
+    //    NSLog(@"%@", NSStringFromCGRect(self.view.frame));
+//    [self getHotMerchants];
 }
 
 -(void)initView
 {
-//    NSLog(@"headerview.frame = %@", NSStringFromCGRect(self.view.frame));
-//    self.frame.size.height = kSearchBarHeight + kHotTitleLabelHeight + kHotScrollViewHeight + kMargin;
-//    self.frame = frame;
-//    self.view.backgroundColor = [UIColor blueColor];
+    //    NSLog(@"headerview.frame = %@", NSStringFromCGRect(self.view.frame));
+    //    self.frame.size.height = kSearchBarHeight + kHotTitleLabelHeight + kHotScrollViewHeight + kMargin;
+    //    self.frame = frame;
+    //    self.view.backgroundColor = [UIColor blueColor];
     [self addSearchBar];
-    [self addHotMerchant];
+//    [self addHotMerchant];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -61,7 +62,7 @@
     label.font = [UIFont systemFontOfSize:kTextSize];
     
     label.frame = CGRectMake(kMargin, kSearchBarHeight, self.view.frame.size.width - kMargin * 2, kHotTitleLabelHeight);
-//    label.backgroundColor = [UIColor blueColor];
+    //    label.backgroundColor = [UIColor blueColor];
     
     [self.view addSubview:label];
     
@@ -75,18 +76,18 @@
 }
 
 /*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
+ #pragma mark - Navigation
+ // In a storyboard-based application, you will often want to do a little preparation before navigation
+ - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+ // Get the new view controller using [segue destinationViewController].
+ // Pass the selected object to the new view controller.
+ }
+ */
 
 -(CGFloat)getHeaderHeight
 {
-    return kSearchBarHeight + kHotTitleLabelHeight + kHotScrollViewHeight + kMargin;
+//    return kSearchBarHeight + kHotTitleLabelHeight + kHotScrollViewHeight + kMargin;
+    return kSearchBarHeight;
 }
 
 -(void)setViewFrame:(CGRect)frame
@@ -103,7 +104,7 @@
         if (responseObject[@"code"] && [responseObject[@"code"] integerValue] == 0) {
             CGFloat x = kMargin;
             for (NSDictionary *dict in responseObject[@"msg"]) {
-//                NSLog(@"%@", dict);
+                //                NSLog(@"%@", dict);
                 UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
                 CGFloat width = [dict[@"name"] getStringWidth:kTextSize] + kMargin * 2;
                 btn.frame = CGRectMake(x, 0, width, kHotScrollViewHeight);
@@ -124,13 +125,24 @@
 
 - (void)searchBarTextDidBeginEditing:(UISearchBar *)searchBar
 {
-    SearchController *svc = [[SearchController alloc] initWithSearchResultsController:[[SearchResultViewController alloc] init]];
-    svc.modalPresentationStyle = UIModalPresentationPopover;
-    svc.previousVC = self.navigationController;
-//    self.navigationController.modalPresentationStyle = UIModalPresentationPopover;
-    [self.navigationController presentViewController:svc animated:YES completion:^{
-    }];
+//    SearchController *svc = [[SearchController alloc] initWithSearchResultsController:[[SearchResultViewController alloc] init]];
+//    svc.modalPresentationStyle = UIModalPresentationPopover;
+//    svc.previousVC = self.navigationController;
+//    //    self.navigationController.modalPresentationStyle = UIModalPresentationPopover;
+//    [self presentViewController:svc animated:YES completion:^{
+//    }];
+    
+    //5-17 使用navc + tableview + SearchCon 实现
+    self.definesPresentationContext = YES;
+    SearchViewController *svc = [[SearchViewController alloc] initWithResultViewController:[[SearchResultViewController alloc] init]];
+    UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:svc];
+//    nav.modalPresentationStyle = UIModalPresentationPopover;
+//    svc.modalPresentationStyle = UIModalPresentationPopover;
+    nav.modalTransitionStyle = 2;
+    [self presentViewController:nav animated:YES completion:nil];
 }
+
+
 
 
 @end

@@ -36,14 +36,18 @@
 //取消点赞
 #define kUnlike @"services/unlike"
 
+#define kInfoCellID @"serviceInfoCell"
+
 #define kTextSize 14
 #define kSubTextSize 12
 //定义button的文字大小
 #define kButtonFontSize 15
 //定义搜索框高度
 #define kSearchBarHeight 44
+//定义服务圈底部距离
+#define kCellMarginBottom 10
 
-#define kSearchPlaceHolder @"搜索您感兴趣的商家"
+#define kSearchPlaceHolder @"搜索您感兴趣的服务信息"
 #define kCancelText @"取消"
 
 //定义颜色

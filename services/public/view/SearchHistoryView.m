@@ -26,7 +26,7 @@
 
 -(instancetype)init
 {
-    NSArray *data = @[@"张二狗的狗肉店", @"小美丽的衣帽间", @"曼泰餐厅", @"叫了只鸡", ];
+    NSArray *data = @[@"毛毛虫", @"折扣", @"优惠", @"樱桃", @"好喝的奶茶", @"女装新品"];
     if (self = [super init]) {
         self.data = [NSMutableArray arrayWithArray:data];
         [self setHistory];

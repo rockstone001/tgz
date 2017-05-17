@@ -63,11 +63,11 @@
     CGRect frame = self.contentView.bounds;
     vc1.view.frame = frame;
     
-    HotViewController *vc2 = [[HotViewController alloc] init];
-    [self addChildViewController:vc2];
-    [self.contentView addSubview:vc2.view];
-    frame.origin.x = frame.size.width;
-    vc2.view.frame = frame;
+//    HotViewController *vc2 = [[HotViewController alloc] init];
+//    [self addChildViewController:vc2];
+//    [self.contentView addSubview:vc2.view];
+//    frame.origin.x = frame.size.width;
+//    vc2.view.frame = frame;
     
     LocateViewController *vc3 = [[LocateViewController alloc] init];
     [self addChildViewController:vc3];
@@ -75,7 +75,7 @@
     frame.origin.x += frame.size.width;
     vc3.view.frame = frame;
     
-    self.contentView.contentSize = CGSizeMake(frame.size.width * 3, frame.size.height);
+    self.contentView.contentSize = CGSizeMake(frame.size.width * 2, frame.size.height);
 }
 
 -(void)initScrollView
@@ -104,7 +104,7 @@
 -(void)initNavButton
 {
     CGRect frame = self.navigationController.navigationBar.frame;
-    NavCenterBar *navCenterBar = [[NavCenterBar alloc] initWithFrame:frame btnTitleArray:@[@"关注", @"热门", @"附近"]];
+    NavCenterBar *navCenterBar = [[NavCenterBar alloc] initWithFrame:frame btnTitleArray:@[@"关注", @"优惠"]];
     navCenterBar.navCenterBardelegate = self;
     [self.navigationController.navigationBar addSubview:navCenterBar];
     self.centerBar = navCenterBar;

@@ -14,6 +14,16 @@
 	</dict>
 	<dict>
 		<key>icon</key>
+		<string>tabbar_discover</string>
+		<key>iconSelected</key>
+		<string>tabbar_discover_selected</string>
+		<key>title</key>
+		<string>商家</string>
+		<key>tag</key>
+		<string>2</string>
+	</dict>
+	<dict>
+		<key>icon</key>
 		<string>tabbar_message_center</string>
 		<key>iconSelected</key>
 		<string>tabbar_message_center_selected</string>
@@ -21,26 +31,6 @@
 		<string>消息</string>
 		<key>tag</key>
 		<string>1</string>
-	</dict>
-	<dict>
-		<key>backgroundImage</key>
-		<string>tabbar_compose_button</string>
-		<key>backgroundImageSelected</key>
-		<string>tabbar_compose_button_highlighted</string>
-		<key>icon</key>
-		<string>tabbar_compose_icon_add</string>
-		<key>iconSelected</key>
-		<string>tabbar_compose_background_icon_add</string>
-	</dict>
-	<dict>
-		<key>icon</key>
-		<string>tabbar_discover</string>
-		<key>iconSelected</key>
-		<string>tabbar_discover_selected</string>
-		<key>title</key>
-		<string>发现</string>
-		<key>tag</key>
-		<string>2</string>
 	</dict>
 	<dict>
 		<key>icon</key>
