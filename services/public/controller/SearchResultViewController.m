@@ -179,5 +179,11 @@
     }] resume];
 }
 
+-(void)scrollViewDidScroll:(UIScrollView *)scrollView
+{
+    SearchViewController *svc = (SearchViewController *)self.parentViewController;
+    [svc tableViewDidScroll];
+}
+
 
 @end

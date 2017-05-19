@@ -134,7 +134,7 @@
     
     //5-17 使用navc + tableview + SearchCon 实现
     self.definesPresentationContext = YES;
-    SearchViewController *svc = [[SearchViewController alloc] initWithResultViewController:[[SearchResultViewController alloc] init]];
+    SearchViewController *svc = [[SearchViewController alloc] initWithResultViewController:(UITableView *)[[SearchResultViewController alloc] init]];
     UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:svc];
 //    nav.modalPresentationStyle = UIModalPresentationPopover;
 //    svc.modalPresentationStyle = UIModalPresentationPopover;

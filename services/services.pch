@@ -35,6 +35,8 @@
 #define kLike @"services/like"
 //取消点赞
 #define kUnlike @"services/unlike"
+//附近的优惠
+#define kGetCoupon @"services/get_coupons"
 
 #define kInfoCellID @"serviceInfoCell"
 
@@ -46,6 +48,10 @@
 #define kSearchBarHeight 44
 //定义服务圈底部距离
 #define kCellMarginBottom 10
+//定义优惠券的高度 和 长度
+#define kCouponHeight 65
+#define kCouponRightWidth 50
+#define kCoupoLeftWidth 107
 
 #define kSearchPlaceHolder @"搜索您感兴趣的服务信息"
 #define kCancelText @"取消"
@@ -57,3 +63,10 @@
 #define kSpacingLineColor [UIColor colorWithRed:217/255.0 green:217/255.0 blue:217/255.0 alpha:1]
 #define kSearchBarColor [UIColor colorWithRed:201/255.0 green:201/255.0 blue:206/255.0 alpha:1]
 #endif /* services_pch */
+
+
+#ifdef DEBUG
+#define NSLog(format, ...) printf("\n[%s] %s [第%d行] %s\n", __TIME__, __FUNCTION__, __LINE__, [[NSString stringWithFormat:format, ## __VA_ARGS__] UTF8String]);
+#else
+#define NSLog(format, ...)
+#endif

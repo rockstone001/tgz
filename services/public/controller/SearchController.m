@@ -4,6 +4,8 @@
 //
 //  Created by lqzhuang on 17/5/14.
 //  Copyright © 2017年 lqzhuang. All rights reserved.
+
+//基本 不用了
 //
 
 #import "SearchController.h"

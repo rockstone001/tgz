@@ -9,8 +9,6 @@
 #import <UIKit/UIKit.h>
 #import "NavCenterBar.h"
 #import "MyFollowViewController.h"
-#import "HotViewController.h"
-#import "LocateViewController.h"
 #import "ServiceInfoCell.h"
 #import "PhotoBrowserController.h"
 

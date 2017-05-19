@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "ServiceInfo.h"
 #import "LikeButton.h"
+#import "CouponView.h"
 @class ServiceInfoCell;
 
 @protocol ServiceInfoCollectionCellDelegate <NSObject>
@@ -37,6 +38,7 @@
 @property (nonatomic, weak) LikeButton *message;
 @property (nonatomic, weak) UILabel *spacingLine;
 @property (nonatomic, assign) NSIndexPath *indexPath;
+@property (nonatomic, strong) NSArray <CouponView *> *couponViews;
 
 
 

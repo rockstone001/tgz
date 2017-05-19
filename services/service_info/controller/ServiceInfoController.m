@@ -58,10 +58,12 @@
 {
     
     MyFollowViewController *vc1 = [[MyFollowViewController alloc] init];
+    vc1.type = @"关注";
     [self addChildViewController:vc1];
     [self.contentView addSubview:vc1.view];
     CGRect frame = self.contentView.bounds;
     vc1.view.frame = frame;
+    [vc1 refreshList];
     
 //    HotViewController *vc2 = [[HotViewController alloc] init];
 //    [self addChildViewController:vc2];
@@ -69,7 +71,8 @@
 //    frame.origin.x = frame.size.width;
 //    vc2.view.frame = frame;
     
-    LocateViewController *vc3 = [[LocateViewController alloc] init];
+    MyFollowViewController *vc3 = [[MyFollowViewController alloc] init];
+    vc3.type = @"附近优惠";
     [self addChildViewController:vc3];
     [self.contentView addSubview:vc3.view];
     frame.origin.x += frame.size.width;
@@ -104,7 +107,7 @@
 -(void)initNavButton
 {
     CGRect frame = self.navigationController.navigationBar.frame;
-    NavCenterBar *navCenterBar = [[NavCenterBar alloc] initWithFrame:frame btnTitleArray:@[@"关注", @"优惠"]];
+    NavCenterBar *navCenterBar = [[NavCenterBar alloc] initWithFrame:frame btnTitleArray:@[@"关注", @"附近优惠"]];
     navCenterBar.navCenterBardelegate = self;
     [self.navigationController.navigationBar addSubview:navCenterBar];
     self.centerBar = navCenterBar;
@@ -121,14 +124,17 @@
 //    NSLog(@"navbar %zd clicked", btn.tag);
     [UIView animateWithDuration:0.3 animations:^{
         self.contentView.contentOffset = CGPointMake(self.contentView.frame.size.width * btn.tag, 0);
+    } completion:^(BOOL finished) {
+        [[self.childViewControllers objectAtIndex:btn.tag] refreshList];
     }];
 }
 
 -(void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView
 {
     NSInteger index = scrollView.contentOffset.x / scrollView.frame.size.width;
-    NSLog(@"%zd", index);
+//    NSLog(@"%zd", index);
     [self.centerBar btnChange:index];
+    [[self.childViewControllers objectAtIndex:index] refreshList];
 }
 
 //图片点击的代理方法

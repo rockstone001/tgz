@@ -124,6 +124,13 @@
     self.searchBar.text = text;
     [self searchBar:_searchBar textDidChange:text];
     [self.searchBar resignFirstResponder];
+    [self setCancelBtnEnabled];
+}
+
+-(void)searchBarSearchButtonClicked:(UISearchBar *)searchBar
+{
+    [self.searchBar resignFirstResponder];
+    [self setCancelBtnEnabled];
 }
 
 -(void)dealloc
@@ -134,13 +141,20 @@
 -(void)tableViewDidScroll
 {
 //    [self.view endEditing:YES];
-    [_searchBar resignFirstResponder];
+    [_searchBar endEditing:YES];
+    [self setCancelBtnEnabled];
 }
 
 
 -(void)viewWillAppear:(BOOL)animated
 {
     self.navigationController.navigationBar.hidden = YES;
+}
+
+-(void)setCancelBtnEnabled
+{
+    UIButton *cancelBtn = [_searchBar valueForKey:@"cancelButton"]; //首先取出cancelBtn
+    cancelBtn.enabled = YES;
 }
 
 @end

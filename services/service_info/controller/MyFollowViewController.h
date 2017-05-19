@@ -10,4 +10,8 @@
 
 @interface MyFollowViewController : UITableViewController
 
+-(void)refreshList;
+
+@property (nonatomic, copy) NSString *type;
+
 @end

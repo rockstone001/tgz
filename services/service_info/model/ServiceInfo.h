@@ -8,6 +8,18 @@
 
 #import <Foundation/Foundation.h>
 
+
+@interface Coupon : NSObject
+
+@property (nonatomic, copy) NSString *price;
+@property (nonatomic, copy) NSString *desc;
+@property (nonatomic, assign) NSInteger ID;
+@property (nonatomic, assign) BOOL isExpired;
+
+-(instancetype)initWithDict:(NSDictionary *)dict;
+
+@end
+
 @interface ServiceInfo : NSObject
 
 @property (nonatomic, copy) NSString *avatar;
@@ -20,9 +32,13 @@
 @property (nonatomic, copy) NSString *likes;
 @property (nonatomic, copy) NSString *comments;
 @property (nonatomic, assign) NSInteger ID;
+@property (nonatomic, strong) NSArray *coupons;
 
 -(instancetype)initWithDict:(NSDictionary *)dict;
 +(instancetype)serviceInfo:(NSDictionary *)dict;
 
 
 @end
+
+
+

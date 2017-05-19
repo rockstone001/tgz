@@ -10,12 +10,18 @@
 #import "ServiceInfoController.h"
 #import "DetailViewController.h"
 #import "MyFollowHeaderViewController.h"
+#import <CoreLocation/CoreLocation.h>
 #define kRefreshHeight 75
 
-@interface MyFollowViewController () <ServiceInfoCellDelegate>
+@interface MyFollowViewController () <ServiceInfoCellDelegate, CLLocationManagerDelegate>
 
 @property (nonatomic, strong) NSMutableArray *list;
 //@property (nonatomic, strong) PhotoBrowser *pb;
+
+@property (nonatomic, strong) CLLocationManager *locManager;
+
+@property (nonatomic, assign) CGFloat longitude; //经度
+@property (nonatomic, assign) CGFloat latitude; //纬度
 
 @end
 
@@ -28,9 +34,25 @@
     }
     return _list;
 }
+-(CLLocationManager *)locManager
+{
+    if (!_locManager) {
+        _locManager = [[CLLocationManager alloc] init];
+        _locManager.delegate = self;
+        
+        if ([_locManager respondsToSelector:@selector(requestWhenInUseAuthorization)]) {
+            [_locManager requestWhenInUseAuthorization];
+        }
+    }
+    return _locManager;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    
+    
+    
     //取消分割线
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
 //    CGRect frame = self.tableView.frame;
@@ -53,7 +75,7 @@
     
     self.view.backgroundColor = [UIColor whiteColor];
     
-    [self refreshList];
+//    [self refreshList];
     
     [self loadRefreshView];
     
@@ -96,20 +118,31 @@
 
 -(void)refreshList
 {
+    NSString *urlString = [kAPIHost stringByAppendingPathComponent:kGetCoupon];
+    if ([self.type isEqualToString:@"关注"]) {
+        urlString = [kAPIHost stringByAppendingPathComponent:kGetMySerices];
+    } else if (!self.longitude) {
+        if ([CLLocationManager locationServicesEnabled]) { // 判断是否打开了位置服务
+            [self.locManager startUpdatingLocation]; // 开始更新位置
+        }
+        return;
+    }
     
-    NSString *urlString = [kAPIHost stringByAppendingPathComponent:kGetMySerices];
 //    NSLog(@"%@", urlString);
     AFURLSessionManager *manager = [[AFURLSessionManager alloc] initWithSessionConfiguration:[NSURLSessionConfiguration defaultSessionConfiguration]];
     NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:urlString] cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:5];
     [[manager dataTaskWithRequest:request uploadProgress:nil downloadProgress:nil completionHandler:^(NSURLResponse * _Nonnull response, id  _Nullable responseObject, NSError * _Nullable error) {
 //        NSLog(@"%@", responseObject);
+        NSLog(@"http response");
         if (responseObject[@"code"] && [responseObject[@"code"] integerValue] == 0) {
 //            NSLog(@"%@", responseObject[@"msg"]);
+            [self.list removeAllObjects];
             for (NSDictionary *dict in responseObject[@"msg"]) {
                 ServiceInfo *info = [ServiceInfo serviceInfo:dict];
                 [self.list addObject:info];
             }
             [self.tableView reloadData];
+            [self endRefreshControl];
         }
     }] resume];
 }
@@ -187,6 +220,13 @@
 // 刷新的回调方法
 - (void)loadData
 {
+    if ([self.type isEqualToString:@"附近优惠"]) {
+        if ([CLLocationManager locationServicesEnabled]) { // 判断是否打开了位置服务
+            [self.locManager startUpdatingLocation]; // 开始更新位置
+            NSLog(@"start location");
+        }
+        return;
+    }
     NSString *urlString = [kAPIHost stringByAppendingPathComponent:kGetMyServicesNew];
     //    NSLog(@"%@", urlString);
     AFURLSessionManager *manager = [[AFURLSessionManager alloc] initWithSessionConfiguration:[NSURLSessionConfiguration defaultSessionConfiguration]];
@@ -249,5 +289,16 @@
     [self.navigationController pushViewController:dvc animated:YES];
 }
 
+
+-(void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray<CLLocation *> *)locations
+{
+    CLLocation *location = [locations lastObject];
+    self.longitude = location.coordinate.longitude;
+    self.latitude = location.coordinate.latitude;
+    [self.locManager stopUpdatingLocation];
+    NSLog(@"%.5f, %.5f", self.longitude, self.latitude);
+    [self refreshList];
+    
+}
 
 @end

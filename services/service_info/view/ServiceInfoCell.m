@@ -127,10 +127,8 @@
     [comment setImage:[UIImage imageNamed:@"comment"] forState:UIControlStateNormal];
     [message setImage:[UIImage imageNamed:@"message"] forState:UIControlStateNormal];
     
-    //开发测试时用到的
-//    username.backgroundColor = [UIColor redColor];
-//    signature.backgroundColor = [UIColor greenColor];
-//    like.imageView.tintColor = [UIColor redColor];
+    //增加优惠券的展示
+    
     
     //关联到属性
     _avatar = avatar;
@@ -174,6 +172,13 @@
     if (self.liked) {
         [self.like setImage:[UIImage imageNamed:@"liked"] forState:UIControlStateNormal];
     }
+    
+    //优惠券
+    NSMutableArray *marr = [NSMutableArray array];
+    for (Coupon *coupon in info.coupons) {
+        [marr addObject:[[CouponView alloc] initWithPrice:coupon.price withDesc:coupon.desc]];
+    }
+    _couponViews = marr;
 }
 
 -(void)layoutSubviews2
@@ -203,6 +208,21 @@
     y = y > leftY ? y : leftY;
     
     y += kCellMargin;
+    
+    //优惠券
+    if (self.couponViews.count > 0) {
+        CGFloat couponWidth = kCouponRightWidth + kCoupoLeftWidth;
+        NSInteger index = 0;
+        CGFloat x = kCellMargin;
+        for (CouponView *couponView in self.couponViews) {
+            [self.wrapperView addSubview:couponView];
+            couponView.frame = CGRectMake(x, y, couponWidth, kCouponHeight);
+            index ++;
+            y += (index / 2.0 > 0 && index % 2 == 0) ? (kCouponHeight + kCellMargin) : 0;
+            x = index % 2 == 0 ? kCellMargin : cellWidth - couponWidth + kCellMargin;
+        }
+        y += kCouponHeight + kCellMargin;
+    }
     
     //图文的文字
     CGSize textSize = [self.text.text getSizeWithMaxSize:CGSizeMake(cellWidth, kMaxLines * kLineHeight) fontSize:kTextSize];
@@ -267,6 +287,11 @@
     
     y = y > rightY ? y : rightY;
     
+    NSInteger couponRows = ceil(info.coupons.count / 2.0);
+    if (couponRows > 0) {
+        y += couponRows * (kCouponHeight + kCellMargin);
+    }
+    
     y += kCellMargin + [info.text getSizeWithMaxSize:CGSizeMake(cellWidth, kMaxLines * kLineHeight) fontSize:kTextSize].height;
     if (info.images.count > 0) {
         CGFloat collectionItemWidth = (cellWidth - (kCollectionItemRowNum - 1) * kCellMargin) / kCollectionItemRowNum;
@@ -277,6 +302,7 @@
     }
     y += kSpacingLineHeight;
     y += kLikeBtnHeight;
+    
     
     return y + kCellMargin + kMarginTop;
 }

@@ -8,6 +8,23 @@
 
 #import "ServiceInfo.h"
 
+@implementation Coupon
+
+-(instancetype)initWithDict:(NSDictionary *)dict
+{
+    if (self = [super init]) {
+        self.price = dict[@"price"];
+        self.desc = dict[@"desc"];
+        self.ID = [[NSString stringWithFormat:@"%@", dict[@"id"]] integerValue];
+        if (dict[@"is_expired"] && [dict[@"is_expired"] boolValue]) {
+            self.isExpired = YES;
+        }
+    }
+    return self;
+}
+
+@end
+
 @implementation ServiceInfo
 
 -(instancetype)initWithDict:(NSDictionary *)dict
@@ -26,6 +43,11 @@
         }
         self.likes = [NSString stringWithFormat:@"%@", dict[@"likes"]];
         self.comments = [NSString stringWithFormat:@"%@", dict[@"comments"]];
+        NSMutableArray *marr = [NSMutableArray array];
+        for (NSDictionary *d in dict[@"coupons"]) {
+            [marr addObject:[[Coupon alloc] initWithDict:d]];
+        }
+        self.coupons = marr;
     }
     return self;
 }
@@ -36,3 +58,6 @@
 }
 
 @end
+
+
+
