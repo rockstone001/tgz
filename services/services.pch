@@ -30,6 +30,8 @@
 
 //获取搜索结果
 #define kGetSearchResult @"services/get_search_result"
+//获取商家
+#define kGetMerchants @"services/get_merchants"
 
 //点赞
 #define kLike @"services/like"
@@ -52,9 +54,12 @@
 #define kCouponHeight 65
 #define kCouponRightWidth 50
 #define kCoupoLeftWidth 107
+//商家头部的高度
+#define kHeaderViewHeight 44
 
 #define kSearchPlaceHolder @"搜索您感兴趣的服务信息"
 #define kCancelText @"取消"
+#define kMerchantSearchPlaceHolder @"搜索您感兴趣的商家"
 
 //定义颜色
 #define kLightGray [UIColor colorWithRed:123/255.0 green:123/255.0 blue:123/255.0 alpha:1]

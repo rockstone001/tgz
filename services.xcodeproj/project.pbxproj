@@ -64,6 +64,12 @@
 		DC3BE3021ECEE41E002480F1 /* UIProgressView+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = DC3BE2F71ECEE41E002480F1 /* UIProgressView+AFNetworking.m */; };
 		DC3BE3031ECEE41E002480F1 /* UIRefreshControl+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = DC3BE2F91ECEE41E002480F1 /* UIRefreshControl+AFNetworking.m */; };
 		DC3BE3041ECEE41E002480F1 /* UIWebView+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = DC3BE2FB1ECEE41E002480F1 /* UIWebView+AFNetworking.m */; };
+		DC3BE3AD1ED2BCCD002480F1 /* MerchantsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DC3BE3AC1ED2BCCD002480F1 /* MerchantsViewController.m */; };
+		DC3BE3B01ED2BD27002480F1 /* WaterFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = DC3BE3AF1ED2BD27002480F1 /* WaterFlowLayout.m */; };
+		DC3BE3B31ED2BF77002480F1 /* HeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = DC3BE3B21ED2BF77002480F1 /* HeaderView.m */; };
+		DC3BE3B61ED2C234002480F1 /* Merchant.m in Sources */ = {isa = PBXBuildFile; fileRef = DC3BE3B51ED2C234002480F1 /* Merchant.m */; };
+		DC3BE3B91ED2CCA3002480F1 /* MerchantCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DC3BE3B81ED2CCA3002480F1 /* MerchantCell.m */; };
+		DC3BE3BC1ED3E902002480F1 /* DistanceButton.m in Sources */ = {isa = PBXBuildFile; fileRef = DC3BE3BB1ED3E902002480F1 /* DistanceButton.m */; };
 		DCCB60961ECC7142003A3B86 /* SearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DCCB60951ECC7142003A3B86 /* SearchViewController.m */; };
 		DCCB609C1ECD3486003A3B86 /* CouponView.m in Sources */ = {isa = PBXBuildFile; fileRef = DCCB609B1ECD3486003A3B86 /* CouponView.m */; };
 		DCD15D331EC43D160071BE0E /* SearchBar.m in Sources */ = {isa = PBXBuildFile; fileRef = DCD15D321EC43D160071BE0E /* SearchBar.m */; };
@@ -198,6 +204,18 @@
 		DC3BE2F91ECEE41E002480F1 /* UIRefreshControl+AFNetworking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIRefreshControl+AFNetworking.m"; sourceTree = "<group>"; };
 		DC3BE2FA1ECEE41E002480F1 /* UIWebView+AFNetworking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIWebView+AFNetworking.h"; sourceTree = "<group>"; };
 		DC3BE2FB1ECEE41E002480F1 /* UIWebView+AFNetworking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIWebView+AFNetworking.m"; sourceTree = "<group>"; };
+		DC3BE3AB1ED2BCCD002480F1 /* MerchantsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MerchantsViewController.h; sourceTree = "<group>"; };
+		DC3BE3AC1ED2BCCD002480F1 /* MerchantsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MerchantsViewController.m; sourceTree = "<group>"; };
+		DC3BE3AE1ED2BD27002480F1 /* WaterFlowLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WaterFlowLayout.h; sourceTree = "<group>"; };
+		DC3BE3AF1ED2BD27002480F1 /* WaterFlowLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WaterFlowLayout.m; sourceTree = "<group>"; };
+		DC3BE3B11ED2BF77002480F1 /* HeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HeaderView.h; sourceTree = "<group>"; };
+		DC3BE3B21ED2BF77002480F1 /* HeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HeaderView.m; sourceTree = "<group>"; };
+		DC3BE3B41ED2C234002480F1 /* Merchant.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Merchant.h; sourceTree = "<group>"; };
+		DC3BE3B51ED2C234002480F1 /* Merchant.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Merchant.m; sourceTree = "<group>"; };
+		DC3BE3B71ED2CCA3002480F1 /* MerchantCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MerchantCell.h; sourceTree = "<group>"; };
+		DC3BE3B81ED2CCA3002480F1 /* MerchantCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MerchantCell.m; sourceTree = "<group>"; };
+		DC3BE3BA1ED3E902002480F1 /* DistanceButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DistanceButton.h; sourceTree = "<group>"; };
+		DC3BE3BB1ED3E902002480F1 /* DistanceButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DistanceButton.m; sourceTree = "<group>"; };
 		DCCB60941ECC7142003A3B86 /* SearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchViewController.h; sourceTree = "<group>"; };
 		DCCB60951ECC7142003A3B86 /* SearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchViewController.m; sourceTree = "<group>"; };
 		DCCB609A1ECD3486003A3B86 /* CouponView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CouponView.h; sourceTree = "<group>"; };
@@ -443,6 +461,8 @@
 			children = (
 				DC3457591EB0944100D82E2D /* ProviderController.h */,
 				DC34575A1EB0944100D82E2D /* ProviderController.m */,
+				DC3BE3AB1ED2BCCD002480F1 /* MerchantsViewController.h */,
+				DC3BE3AC1ED2BCCD002480F1 /* MerchantsViewController.m */,
 			);
 			path = controller;
 			sourceTree = "<group>";
@@ -450,6 +470,8 @@
 		DC3457491EB0913600D82E2D /* model */ = {
 			isa = PBXGroup;
 			children = (
+				DC3BE3B41ED2C234002480F1 /* Merchant.h */,
+				DC3BE3B51ED2C234002480F1 /* Merchant.m */,
 			);
 			path = model;
 			sourceTree = "<group>";
@@ -457,6 +479,12 @@
 		DC34574A1EB0913600D82E2D /* view */ = {
 			isa = PBXGroup;
 			children = (
+				DC3BE3AE1ED2BD27002480F1 /* WaterFlowLayout.h */,
+				DC3BE3AF1ED2BD27002480F1 /* WaterFlowLayout.m */,
+				DC3BE3B11ED2BF77002480F1 /* HeaderView.h */,
+				DC3BE3B21ED2BF77002480F1 /* HeaderView.m */,
+				DC3BE3B71ED2CCA3002480F1 /* MerchantCell.h */,
+				DC3BE3B81ED2CCA3002480F1 /* MerchantCell.m */,
 			);
 			path = view;
 			sourceTree = "<group>";
@@ -571,6 +599,8 @@
 				DC3457FF1EB8429000D82E2D /* NavCenterBar.m */,
 				DCD15D431EC579C80071BE0E /* LikeButton.h */,
 				DCD15D441EC579C80071BE0E /* LikeButton.m */,
+				DC3BE3BA1ED3E902002480F1 /* DistanceButton.h */,
+				DC3BE3BB1ED3E902002480F1 /* DistanceButton.m */,
 				DCD15D551EC943DE0071BE0E /* SearchHistoryView.h */,
 				DCD15D561EC943DE0071BE0E /* SearchHistoryView.m */,
 			);
@@ -742,6 +772,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DC3BE3AD1ED2BCCD002480F1 /* MerchantsViewController.m in Sources */,
 				DC3457811EB4235500D82E2D /* MainBarItem.m in Sources */,
 				DC3BE3011ECEE41E002480F1 /* UIImageView+AFNetworking.m in Sources */,
 				DC3BE2B71ECEDF51002480F1 /* MKAnnotationView+WebCache.m in Sources */,
@@ -780,7 +811,9 @@
 				DC3BE2E61ECEE3CF002480F1 /* NSString+extension.m in Sources */,
 				DC3BE2DB1ECEDFBB002480F1 /* AFURLRequestSerialization.m in Sources */,
 				DC34576E1EB0F09F00D82E2D /* AppDelegate.m in Sources */,
+				DC3BE3B01ED2BD27002480F1 /* WaterFlowLayout.m in Sources */,
 				DCFC20601EBE12C40075ED2F /* ServiceInfoCell.m in Sources */,
+				DC3BE3B91ED2CCA3002480F1 /* MerchantCell.m in Sources */,
 				DC34575B1EB0944100D82E2D /* ProviderController.m in Sources */,
 				DC3BE3001ECEE41E002480F1 /* UIButton+AFNetworking.m in Sources */,
 				DC3BE2C31ECEDF51002480F1 /* UIImage+GIF.m in Sources */,
@@ -794,6 +827,8 @@
 				DC3458001EB8429000D82E2D /* NavCenterBar.m in Sources */,
 				DCFC20541EBAD2A80075ED2F /* MyFollowViewController.m in Sources */,
 				DCD15D571EC943DE0071BE0E /* SearchHistoryView.m in Sources */,
+				DC3BE3B31ED2BF77002480F1 /* HeaderView.m in Sources */,
+				DC3BE3B61ED2C234002480F1 /* Merchant.m in Sources */,
 				DC3BE2BF1ECEDF51002480F1 /* SDWebImageDownloaderOperation.m in Sources */,
 				DCD15D451EC579C80071BE0E /* LikeButton.m in Sources */,
 				DC3457211EB08E0D00D82E2D /* main.m in Sources */,
@@ -809,6 +844,7 @@
 				DC34576F1EB0F09F00D82E2D /* MainNavController.m in Sources */,
 				DC3BE2E21ECEE3AD002480F1 /* UIBarButtonItem+Badge.m in Sources */,
 				DCD15D361EC44A3E0071BE0E /* PhotoBrowserController.m in Sources */,
+				DC3BE3BC1ED3E902002480F1 /* DistanceButton.m in Sources */,
 				DC3BE2BA1ECEDF51002480F1 /* SDImageCache.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

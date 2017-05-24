@@ -129,13 +129,32 @@
     }];
 }
 
--(void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView
+//-(void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView
+//{
+//    NSInteger index = scrollView.contentOffset.x / scrollView.frame.size.width;
+////    NSLog(@"%zd", index);
+//    [self.centerBar btnChange:index];
+////    [[self.childViewControllers objectAtIndex:index] refreshList];
+//}
+
+// 设置刷新状态
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView
 {
-    NSInteger index = scrollView.contentOffset.x / scrollView.frame.size.width;
-//    NSLog(@"%zd", index);
-    [self.centerBar btnChange:index];
-    [[self.childViewControllers objectAtIndex:index] refreshList];
+//        NSLog(@"%.2f", scrollView.contentOffset.x);
+    //    if (fabs(scrollView.contentOffset.y) < kRefreshHeight) {
+    //        self.refreshControl.attributedTitle = [[NSAttributedString alloc] initWithString:@"下拉刷新"];
+    //    }
+    //    else if (!scrollView.decelerating) {
+    //        self.refreshControl.attributedTitle = [[NSAttributedString alloc] initWithString:@"松开刷新"];
+    //    }
+    if (scrollView.contentOffset.x / self.contentView.bounds.size.width == 1.0) {
+//        NSLog(@"inex = 1");
+        [self.centerBar btnChange:1];
+    } else if (scrollView.contentOffset.x / self.contentView.bounds.size.width == 0.0) {
+        [self.centerBar btnChange:0];
+    }
 }
+
 
 //图片点击的代理方法
 -(void)ServiceInfoCell:(ServiceInfoCell *)serviceInfoCell didClickCellImage:(NSArray *)images currentIndex:(NSIndexPath *)indexPath

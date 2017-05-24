@@ -75,8 +75,6 @@
     
     self.view.backgroundColor = [UIColor whiteColor];
     
-//    [self refreshList];
-    
     [self loadRefreshView];
     
 //    NSLog(@"%@", NSStringFromCGRect(self.tableView.tableHeaderView.frame));
@@ -199,17 +197,6 @@
     }
 }
 
-// 设置刷新状态
-- (void)scrollViewDidScroll:(UIScrollView *)scrollView
-{
-//    NSLog(@"%.2f", scrollView.contentOffset.y);
-//    if (fabs(scrollView.contentOffset.y) < kRefreshHeight) {
-//        self.refreshControl.attributedTitle = [[NSAttributedString alloc] initWithString:@"下拉刷新"];
-//    }
-//    else if (!scrollView.decelerating) {
-//        self.refreshControl.attributedTitle = [[NSAttributedString alloc] initWithString:@"松开刷新"];
-//    }
-}
 
 // 结束刷新
 - (void) endRefreshControl

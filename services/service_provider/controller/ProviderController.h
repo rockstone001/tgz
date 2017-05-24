@@ -7,7 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "NavCenterBar.h"
+#import "MerchantsViewController.h"
 
-@interface ProviderController : UITableViewController
+@interface ProviderController : UIViewController <NavCenterBarDelegate, UIScrollViewDelegate>
 
 @end

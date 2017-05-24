@@ -10,6 +10,9 @@
 
 @interface ProviderController ()
 
+@property (nonatomic, weak) UIScrollView *contentView;
+@property (nonatomic, weak) NavCenterBar *centerBar;
+
 @end
 
 @implementation ProviderController
@@ -22,6 +25,15 @@
     
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    
+    // 设置CGRectZero从导航栏下开始计算
+    if ([self respondsToSelector:@selector(setEdgesForExtendedLayout:)]) {
+        self.edgesForExtendedLayout = UIRectEdgeNone;
+    }
+    [self initNavButton];
+    [self initScrollView];
+    [self initChildVC];
+    self.view.backgroundColor = [UIColor whiteColor];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -29,68 +41,98 @@
     // Dispose of any resources that can be recreated.
 }
 
-#pragma mark - Table view data source
-
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return 0;
+-(void)viewWillDisappear:(BOOL)animated
+{
+    self.centerBar.hidden = YES;
 }
 
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 0;
+-(void)viewWillAppear:(BOOL)animated
+{
+    self.centerBar.hidden = NO;
 }
 
-/*
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:<#@"reuseIdentifier"#> forIndexPath:indexPath];
+-(void)initChildVC
+{
     
-    // Configure the cell...
+    MerchantsViewController *vc1 = [[MerchantsViewController alloc] initWithCollectionViewLayout:[[WaterFlowLayout alloc] init]];
+    vc1.type = @"附近";
+    [self addChildViewController:vc1];
+    [self.contentView addSubview:vc1.view];
+    CGRect frame = self.contentView.bounds;
+    vc1.view.frame = frame;
     
-    return cell;
+    MerchantsViewController *vc2 = [[MerchantsViewController alloc] initWithCollectionViewLayout:[[WaterFlowLayout alloc] init]];
+    vc2.type = @"推荐";
+    [self addChildViewController:vc2];
+    [self.contentView addSubview:vc2.view];
+    frame.origin.x += frame.size.width;
+    vc2.view.frame = frame;
+    
+    MerchantsViewController *vc3 = [[MerchantsViewController alloc] initWithCollectionViewLayout:[[WaterFlowLayout alloc] init]];
+    vc3.type = @"关注";
+    [self addChildViewController:vc3];
+    [self.contentView addSubview:vc3.view];
+    frame.origin.x += frame.size.width;
+    vc3.view.frame = frame;
+    
+    self.contentView.contentSize = CGSizeMake(frame.size.width * 3, frame.size.height);
 }
-*/
 
-/*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
+-(void)initScrollView
+{
+    CGRect frame = self.view.frame;
+    CGRect navBarFrame = self.navigationController.navigationBar.frame;
+    CGRect tabBarFrame = self.tabBarController.tabBar.frame;
+    
+    frame.size.height -= (navBarFrame.size.height + tabBarFrame.size.height + navBarFrame.origin.y);
+    //    frame.origin.y += (navBarFrame.size.height + navBarFrame.origin.y);
+    UIScrollView *scrollView = [[UIScrollView alloc] initWithFrame:frame];
+    //    scrollView.backgroundColor = [UIColor redColor];
+    scrollView.showsHorizontalScrollIndicator = NO;
+    scrollView.showsVerticalScrollIndicator = NO;
+    scrollView.bounces = NO;
+    scrollView.pagingEnabled = YES;
+    scrollView.delegate = self;
+    
+    scrollView.contentOffset = CGPointMake(0, 0);
+    
+    [self.view addSubview:scrollView];
+    self.contentView = scrollView;
+    
 }
-*/
 
-/*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    } else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
+-(void)initNavButton
+{
+    CGRect frame = self.navigationController.navigationBar.frame;
+    NavCenterBar *navCenterBar = [[NavCenterBar alloc] initWithFrame:frame btnTitleArray:@[@"附近", @"推荐", @"关注"]];
+    navCenterBar.navCenterBardelegate = self;
+    [self.navigationController.navigationBar addSubview:navCenterBar];
+    self.centerBar = navCenterBar;
 }
-*/
 
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath {
+-(void)navCenterBar:(NavCenterBar *)navCenterBar buttonClicked:(UIButton *)btn
+{
+    //    NSLog(@"navbar %zd clicked", btn.tag);
+    [UIView animateWithDuration:0.3 animations:^{
+        self.contentView.contentOffset = CGPointMake(self.contentView.frame.size.width * btn.tag, 0);
+    } completion:^(BOOL finished) {
+        [[self.childViewControllers objectAtIndex:btn.tag] refreshList];
+        NSLog(@"reload data");
+    }];
 }
-*/
 
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
+// 设置刷新状态
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView
+{
+    if (scrollView.contentOffset.x / self.contentView.bounds.size.width == 1.0) {
+        //        NSLog(@"inex = 1");
+        [self.centerBar btnChange:1];
+    } else if (scrollView.contentOffset.x / self.contentView.bounds.size.width == 0.0) {
+        [self.centerBar btnChange:0];
+    } else if (scrollView.contentOffset.x / self.contentView.bounds.size.width == 2.0) {
+        [self.centerBar btnChange:2];
+    }
 }
-*/
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end
