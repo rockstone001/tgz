@@ -7,6 +7,7 @@
 //
 
 #import "SearchResultViewController.h"
+#import "SearchViewController.h"
 #import "UITableView+touch.h"
 
 
@@ -63,7 +64,6 @@
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     cell.collectionDelegate = self;
     cell.delegate = self;
-    //    cell.backgroundColor = [UIColor redColor];
     
     return cell;
 }
@@ -92,24 +92,12 @@
 //图片点击的代理方法
 -(void)ServiceInfoCell:(ServiceInfoCell *)serviceInfoCell didClickCellImage:(NSArray *)images currentIndex:(NSIndexPath *)indexPath
 {
-    //    PhotoBrowser *pb = [[PhotoBrowser alloc] init:images currentIndex:indexPath.row];
-    //    [pb show];
     PhotoBrowserController *pvc = [[PhotoBrowserController alloc] init];
     pvc.images = images;
     pvc.index = indexPath.row;
-//    [[[[UIApplication sharedApplication] keyWindow] rootViewController] addChildViewController:pvc];
-//    [[[[UIApplication sharedApplication] keyWindow] rootViewController].view addSubview:pvc.view];
-//    [[[[UIApplication sharedApplication] keyWindow] rootViewController].view bringSubviewToFront:pvc.view];
     SearchViewController *svc = (SearchViewController *)self.parentViewController;
     [svc addChildViewController:pvc];
     [svc.view addSubview:pvc.view];
-//    svc.searchBar.hidden = YES;
-}
-
--(void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
-{
-    SearchViewController *svc = (SearchViewController *)self.parentViewController;
-    [svc tableViewDidScroll];
 }
 
 -(void)ServiceInfoCell:(ServiceInfoCell *)serviceInfoCell didClickLikeButton:(NSIndexPath *)indexPath
@@ -179,11 +167,37 @@
     }] resume];
 }
 
--(void)scrollViewDidScroll:(UIScrollView *)scrollView
+#pragma mark <SearchViewDelegate>
+-(void)searchView:(SearchViewController *)searchViewController refreshSearchResult:(NSString *)searchText
 {
-    SearchViewController *svc = (SearchViewController *)self.parentViewController;
-    [svc tableViewDidScroll];
+    if ([searchText isEqualToString:@""]) {
+        //搜索关键字为空 显示搜索历史
+        SearchHistoryView *historyView = [[SearchHistoryView alloc] initWithType:kSearchPlaceHolder];
+        historyView.delegate = self;
+        self.tableView.tableHeaderView = historyView;
+        self.data = nil;
+        [self.tableView reloadData];
+
+    } else {
+        //不为空 显示搜索结果
+        self.tableView.tableHeaderView = nil;
+        [self getSearchResult:searchText];
+    }
 }
 
+#pragma mark <SearchHistoryDelegate>
+-(void)SearchHistory:(SearchHistoryView *)view closeBtnClicked:(NSString *)text
+{
+    [self.tableView reloadData];
+}
+
+-(void)SearchHistory:(SearchHistoryView *)view textBtnClicked:(NSString *)text
+{
+    SearchViewController *svc = (SearchViewController *)self.parentViewController;
+    svc.searchBar.text = text;
+    [svc searchBar:svc.searchBar textDidChange:text];
+    [svc.searchBar resignFirstResponder];
+    [svc setCancelBtnEnabled];
+}
 
 @end

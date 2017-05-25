@@ -6,20 +6,22 @@
 //  Copyright © 2017年 lqzhuang. All rights reserved.
 //
 
-#import "HeaderView.h"
+#import "SearchHeaderView.h"
 #import "SearchViewController.h"
 #import "SearchResultViewController.h"
 
-@interface HeaderView() <UISearchBarDelegate>
+@interface SearchHeaderView() <UISearchBarDelegate>
 
 @end
 
-@implementation HeaderView
+@implementation SearchHeaderView
 
--(instancetype)initWithFrame:(CGRect)frame
+-(instancetype)initWithFrame:(CGRect)frame withType:(NSString *)type
 {
+    frame.size.height = kSearchBarHeight;
     if (self = [super initWithFrame:frame]) {
-//        self.backgroundColor = [UIColor blueColor];
+        //        self.backgroundColor = [UIColor blueColor];
+        self.type = type;
         [self addSearchBar];
     }
     return self;
@@ -29,7 +31,7 @@
 {
     CGRect frame = self.frame;
     UISearchBar *searchBar = [[UISearchBar alloc] initWithFrame:frame];
-    searchBar.placeholder = kMerchantSearchPlaceHolder;
+    searchBar.placeholder = _type;
     _searchBar = searchBar;
     [self addSubview:searchBar];
 }

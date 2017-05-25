@@ -7,21 +7,28 @@
 //
 
 #import <UIKit/UIKit.h>
+@class SearchViewController;
 
 @protocol SearchViewDelegate <NSObject>
 
 @required
--(void)setData:(id)data;
--(void)getSearchResult:(NSString *)keyword;
+//-(void)setData:(id)data;
+//-(void)getSearchResult:(NSString *)keyword;
+-(void)searchView:(SearchViewController *)searchViewController refreshSearchResult:(NSString *)searchText;
 
 @end
 
 @interface SearchViewController : UIViewController
 
-@property (nonatomic, strong) UITableViewController <SearchViewDelegate> *resultVc;
+@property (nonatomic, strong) id resultVc;
 @property (nonatomic, strong) UISearchBar *searchBar;
+@property (nonatomic, copy) NSString *type;
 
--(instancetype)initWithResultViewController:(UITableView *) resultVc;
+-(instancetype)initWithResultViewController:(id) resultVc withType:(NSString *)type;
 -(void)tableViewDidScroll;
+
+//供子controller调用
+-(void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText;
+-(void)setCancelBtnEnabled;
 
 @end

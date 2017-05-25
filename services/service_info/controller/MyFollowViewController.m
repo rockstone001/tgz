@@ -9,11 +9,15 @@
 #import "MyFollowViewController.h"
 #import "ServiceInfoController.h"
 #import "DetailViewController.h"
-#import "MyFollowHeaderViewController.h"
+#import "SearchHeaderView.h"
+#import "SearchViewController.h"
+#import "SearchResultViewController.h"
+
 #import <CoreLocation/CoreLocation.h>
+
 #define kRefreshHeight 75
 
-@interface MyFollowViewController () <ServiceInfoCellDelegate, CLLocationManagerDelegate>
+@interface MyFollowViewController () <ServiceInfoCellDelegate, CLLocationManagerDelegate, UISearchBarDelegate>
 
 @property (nonatomic, strong) NSMutableArray *list;
 //@property (nonatomic, strong) PhotoBrowser *pb;
@@ -55,29 +59,15 @@
     
     //取消分割线
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
-//    CGRect frame = self.tableView.frame;
-//    frame.size.width -= kMargin * 2;
-//    frame.origin.x += kMargin;
-//    self.tableView.frame = frame;
     
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
-    
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
-    
-    MyFollowHeaderViewController *hvc = [[MyFollowHeaderViewController alloc] init];
-    [hvc setViewFrame:CGRectMake(0, 0, self.view.frame.size.width, [hvc getHeaderHeight])];
-    [self addChildViewController:hvc];
-    self.tableView.tableHeaderView = [[UIView alloc] initWithFrame:hvc.view.frame];
-    [self.tableView.tableHeaderView addSubview:hvc.view];
+    SearchHeaderView *hv = [[SearchHeaderView alloc] initWithFrame:self.view.bounds withType:kSearchPlaceHolder];
+    hv.searchBar.delegate = self;
+    self.tableView.tableHeaderView = hv;
     
     
     self.view.backgroundColor = [UIColor whiteColor];
     
     [self loadRefreshView];
-    
-//    NSLog(@"%@", NSStringFromCGRect(self.tableView.tableHeaderView.frame));
 }
 
 - (void)didReceiveMemoryWarning {
@@ -287,5 +277,19 @@
     [self refreshList];
     
 }
+
+#pragma mark <UISearchBarDelegate>
+- (void)searchBarTextDidBeginEditing:(UISearchBar *)searchBar
+{
+    //5-17 使用navc + tableview + SearchCon 实现
+    self.definesPresentationContext = YES;
+    SearchViewController *svc = [[SearchViewController alloc] initWithResultViewController:[[SearchResultViewController alloc] init] withType:kSearchPlaceHolder];
+    UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:svc];
+    //    nav.modalPresentationStyle = UIModalPresentationPopover;
+    //    svc.modalPresentationStyle = UIModalPresentationPopover;
+    nav.modalTransitionStyle = 2;
+    [self presentViewController:nav animated:YES completion:nil];
+}
+
 
 @end

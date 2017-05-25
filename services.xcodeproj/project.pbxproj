@@ -66,18 +66,16 @@
 		DC3BE3041ECEE41E002480F1 /* UIWebView+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = DC3BE2FB1ECEE41E002480F1 /* UIWebView+AFNetworking.m */; };
 		DC3BE3AD1ED2BCCD002480F1 /* MerchantsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DC3BE3AC1ED2BCCD002480F1 /* MerchantsViewController.m */; };
 		DC3BE3B01ED2BD27002480F1 /* WaterFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = DC3BE3AF1ED2BD27002480F1 /* WaterFlowLayout.m */; };
-		DC3BE3B31ED2BF77002480F1 /* HeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = DC3BE3B21ED2BF77002480F1 /* HeaderView.m */; };
 		DC3BE3B61ED2C234002480F1 /* Merchant.m in Sources */ = {isa = PBXBuildFile; fileRef = DC3BE3B51ED2C234002480F1 /* Merchant.m */; };
 		DC3BE3B91ED2CCA3002480F1 /* MerchantCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DC3BE3B81ED2CCA3002480F1 /* MerchantCell.m */; };
 		DC3BE3BC1ED3E902002480F1 /* DistanceButton.m in Sources */ = {isa = PBXBuildFile; fileRef = DC3BE3BB1ED3E902002480F1 /* DistanceButton.m */; };
+		DC8B2F131ED5209F001E6944 /* MerchantSearchResultViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DC8B2F121ED5209F001E6944 /* MerchantSearchResultViewController.m */; };
+		DC8B2F161ED54514001E6944 /* SearchHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = DC8B2F151ED54514001E6944 /* SearchHeaderView.m */; };
 		DCCB60961ECC7142003A3B86 /* SearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DCCB60951ECC7142003A3B86 /* SearchViewController.m */; };
 		DCCB609C1ECD3486003A3B86 /* CouponView.m in Sources */ = {isa = PBXBuildFile; fileRef = DCCB609B1ECD3486003A3B86 /* CouponView.m */; };
-		DCD15D331EC43D160071BE0E /* SearchBar.m in Sources */ = {isa = PBXBuildFile; fileRef = DCD15D321EC43D160071BE0E /* SearchBar.m */; };
 		DCD15D361EC44A3E0071BE0E /* PhotoBrowserController.m in Sources */ = {isa = PBXBuildFile; fileRef = DCD15D351EC44A3E0071BE0E /* PhotoBrowserController.m */; };
-		DCD15D3F1EC480B70071BE0E /* MyFollowHeaderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DCD15D3E1EC480B70071BE0E /* MyFollowHeaderViewController.m */; };
 		DCD15D451EC579C80071BE0E /* LikeButton.m in Sources */ = {isa = PBXBuildFile; fileRef = DCD15D441EC579C80071BE0E /* LikeButton.m */; };
 		DCD15D481EC6BD340071BE0E /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DCD15D471EC6BD340071BE0E /* DetailViewController.m */; };
-		DCD15D511EC8A11C0071BE0E /* SearchController.m in Sources */ = {isa = PBXBuildFile; fileRef = DCD15D501EC8A11C0071BE0E /* SearchController.m */; };
 		DCD15D541EC936F10071BE0E /* SearchResultViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DCD15D531EC936F10071BE0E /* SearchResultViewController.m */; };
 		DCD15D571EC943DE0071BE0E /* SearchHistoryView.m in Sources */ = {isa = PBXBuildFile; fileRef = DCD15D561EC943DE0071BE0E /* SearchHistoryView.m */; };
 		DCD15D5A1ECA8D170071BE0E /* PersonalViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DCD15D591ECA8D170071BE0E /* PersonalViewController.m */; };
@@ -208,30 +206,26 @@
 		DC3BE3AC1ED2BCCD002480F1 /* MerchantsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MerchantsViewController.m; sourceTree = "<group>"; };
 		DC3BE3AE1ED2BD27002480F1 /* WaterFlowLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WaterFlowLayout.h; sourceTree = "<group>"; };
 		DC3BE3AF1ED2BD27002480F1 /* WaterFlowLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WaterFlowLayout.m; sourceTree = "<group>"; };
-		DC3BE3B11ED2BF77002480F1 /* HeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HeaderView.h; sourceTree = "<group>"; };
-		DC3BE3B21ED2BF77002480F1 /* HeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HeaderView.m; sourceTree = "<group>"; };
 		DC3BE3B41ED2C234002480F1 /* Merchant.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Merchant.h; sourceTree = "<group>"; };
 		DC3BE3B51ED2C234002480F1 /* Merchant.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Merchant.m; sourceTree = "<group>"; };
 		DC3BE3B71ED2CCA3002480F1 /* MerchantCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MerchantCell.h; sourceTree = "<group>"; };
 		DC3BE3B81ED2CCA3002480F1 /* MerchantCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MerchantCell.m; sourceTree = "<group>"; };
 		DC3BE3BA1ED3E902002480F1 /* DistanceButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DistanceButton.h; sourceTree = "<group>"; };
 		DC3BE3BB1ED3E902002480F1 /* DistanceButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DistanceButton.m; sourceTree = "<group>"; };
+		DC8B2F111ED5209F001E6944 /* MerchantSearchResultViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MerchantSearchResultViewController.h; sourceTree = "<group>"; };
+		DC8B2F121ED5209F001E6944 /* MerchantSearchResultViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MerchantSearchResultViewController.m; sourceTree = "<group>"; };
+		DC8B2F141ED54514001E6944 /* SearchHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchHeaderView.h; sourceTree = "<group>"; };
+		DC8B2F151ED54514001E6944 /* SearchHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchHeaderView.m; sourceTree = "<group>"; };
 		DCCB60941ECC7142003A3B86 /* SearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchViewController.h; sourceTree = "<group>"; };
 		DCCB60951ECC7142003A3B86 /* SearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchViewController.m; sourceTree = "<group>"; };
 		DCCB609A1ECD3486003A3B86 /* CouponView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CouponView.h; sourceTree = "<group>"; };
 		DCCB609B1ECD3486003A3B86 /* CouponView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CouponView.m; sourceTree = "<group>"; };
-		DCD15D311EC43D160071BE0E /* SearchBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchBar.h; sourceTree = "<group>"; };
-		DCD15D321EC43D160071BE0E /* SearchBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchBar.m; sourceTree = "<group>"; };
 		DCD15D341EC44A3E0071BE0E /* PhotoBrowserController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotoBrowserController.h; sourceTree = "<group>"; };
 		DCD15D351EC44A3E0071BE0E /* PhotoBrowserController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotoBrowserController.m; sourceTree = "<group>"; };
-		DCD15D3D1EC480B70071BE0E /* MyFollowHeaderViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyFollowHeaderViewController.h; sourceTree = "<group>"; };
-		DCD15D3E1EC480B70071BE0E /* MyFollowHeaderViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyFollowHeaderViewController.m; sourceTree = "<group>"; };
 		DCD15D431EC579C80071BE0E /* LikeButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LikeButton.h; sourceTree = "<group>"; };
 		DCD15D441EC579C80071BE0E /* LikeButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LikeButton.m; sourceTree = "<group>"; };
 		DCD15D461EC6BD340071BE0E /* DetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
 		DCD15D471EC6BD340071BE0E /* DetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
-		DCD15D4F1EC8A11C0071BE0E /* SearchController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchController.h; sourceTree = "<group>"; };
-		DCD15D501EC8A11C0071BE0E /* SearchController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchController.m; sourceTree = "<group>"; };
 		DCD15D521EC936F10071BE0E /* SearchResultViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchResultViewController.h; sourceTree = "<group>"; };
 		DCD15D531EC936F10071BE0E /* SearchResultViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchResultViewController.m; sourceTree = "<group>"; };
 		DCD15D551EC943DE0071BE0E /* SearchHistoryView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchHistoryView.h; sourceTree = "<group>"; };
@@ -414,8 +408,6 @@
 				DC34575D1EB0945300D82E2D /* ServiceInfoController.m */,
 				DCFC20521EBAD2A80075ED2F /* MyFollowViewController.h */,
 				DCFC20531EBAD2A80075ED2F /* MyFollowViewController.m */,
-				DCD15D3D1EC480B70071BE0E /* MyFollowHeaderViewController.h */,
-				DCD15D3E1EC480B70071BE0E /* MyFollowHeaderViewController.m */,
 				DCD15D461EC6BD340071BE0E /* DetailViewController.h */,
 				DCD15D471EC6BD340071BE0E /* DetailViewController.m */,
 				DCD15D581ECA8D170071BE0E /* PersonalViewController.h */,
@@ -438,8 +430,6 @@
 			children = (
 				DCFC205E1EBE12C40075ED2F /* ServiceInfoCell.h */,
 				DCFC205F1EBE12C40075ED2F /* ServiceInfoCell.m */,
-				DCD15D311EC43D160071BE0E /* SearchBar.h */,
-				DCD15D321EC43D160071BE0E /* SearchBar.m */,
 				DCCB609A1ECD3486003A3B86 /* CouponView.h */,
 				DCCB609B1ECD3486003A3B86 /* CouponView.m */,
 			);
@@ -481,8 +471,6 @@
 			children = (
 				DC3BE3AE1ED2BD27002480F1 /* WaterFlowLayout.h */,
 				DC3BE3AF1ED2BD27002480F1 /* WaterFlowLayout.m */,
-				DC3BE3B11ED2BF77002480F1 /* HeaderView.h */,
-				DC3BE3B21ED2BF77002480F1 /* HeaderView.m */,
 				DC3BE3B71ED2CCA3002480F1 /* MerchantCell.h */,
 				DC3BE3B81ED2CCA3002480F1 /* MerchantCell.m */,
 			);
@@ -573,12 +561,12 @@
 			children = (
 				DCD15D341EC44A3E0071BE0E /* PhotoBrowserController.h */,
 				DCD15D351EC44A3E0071BE0E /* PhotoBrowserController.m */,
-				DCD15D4F1EC8A11C0071BE0E /* SearchController.h */,
-				DCD15D501EC8A11C0071BE0E /* SearchController.m */,
 				DCD15D521EC936F10071BE0E /* SearchResultViewController.h */,
 				DCD15D531EC936F10071BE0E /* SearchResultViewController.m */,
 				DCCB60941ECC7142003A3B86 /* SearchViewController.h */,
 				DCCB60951ECC7142003A3B86 /* SearchViewController.m */,
+				DC8B2F111ED5209F001E6944 /* MerchantSearchResultViewController.h */,
+				DC8B2F121ED5209F001E6944 /* MerchantSearchResultViewController.m */,
 			);
 			path = controller;
 			sourceTree = "<group>";
@@ -603,6 +591,8 @@
 				DC3BE3BB1ED3E902002480F1 /* DistanceButton.m */,
 				DCD15D551EC943DE0071BE0E /* SearchHistoryView.h */,
 				DCD15D561EC943DE0071BE0E /* SearchHistoryView.m */,
+				DC8B2F141ED54514001E6944 /* SearchHeaderView.h */,
+				DC8B2F151ED54514001E6944 /* SearchHeaderView.m */,
 			);
 			path = view;
 			sourceTree = "<group>";
@@ -790,7 +780,9 @@
 				DCD15D481EC6BD340071BE0E /* DetailViewController.m in Sources */,
 				DC3BE3031ECEE41E002480F1 /* UIRefreshControl+AFNetworking.m in Sources */,
 				DC3BE2E31ECEE3AD002480F1 /* UIButton+Badge.m in Sources */,
+				DC8B2F131ED5209F001E6944 /* MerchantSearchResultViewController.m in Sources */,
 				DC3BE2C91ECEDF51002480F1 /* UIView+WebCacheOperation.m in Sources */,
+				DC8B2F161ED54514001E6944 /* SearchHeaderView.m in Sources */,
 				DC3BE2FC1ECEE41E002480F1 /* AFAutoPurgingImageCache.m in Sources */,
 				DC3BE2C51ECEDF51002480F1 /* UIImage+WebP.m in Sources */,
 				DC3BE2D91ECEDFBB002480F1 /* AFNetworkReachabilityManager.m in Sources */,
@@ -804,7 +796,6 @@
 				DC3BE2BD1ECEDF51002480F1 /* SDWebImageDecoder.m in Sources */,
 				DC3BE2FD1ECEE41E002480F1 /* AFImageDownloader.m in Sources */,
 				DC3BE2C11ECEDF51002480F1 /* SDWebImagePrefetcher.m in Sources */,
-				DCD15D3F1EC480B70071BE0E /* MyFollowHeaderViewController.m in Sources */,
 				DC3BE28D1ECEDF12002480F1 /* UIScrollView+touch.m in Sources */,
 				DC3BE2DA1ECEDFBB002480F1 /* AFSecurityPolicy.m in Sources */,
 				DC34575E1EB0945300D82E2D /* ServiceInfoController.m in Sources */,
@@ -827,18 +818,15 @@
 				DC3458001EB8429000D82E2D /* NavCenterBar.m in Sources */,
 				DCFC20541EBAD2A80075ED2F /* MyFollowViewController.m in Sources */,
 				DCD15D571EC943DE0071BE0E /* SearchHistoryView.m in Sources */,
-				DC3BE3B31ED2BF77002480F1 /* HeaderView.m in Sources */,
 				DC3BE3B61ED2C234002480F1 /* Merchant.m in Sources */,
 				DC3BE2BF1ECEDF51002480F1 /* SDWebImageDownloaderOperation.m in Sources */,
 				DCD15D451EC579C80071BE0E /* LikeButton.m in Sources */,
 				DC3457211EB08E0D00D82E2D /* main.m in Sources */,
 				DC3BE2BC1ECEDF51002480F1 /* SDWebImageCompat.m in Sources */,
 				DC3457581EB0942100D82E2D /* MessagesController.m in Sources */,
-				DCD15D511EC8A11C0071BE0E /* SearchController.m in Sources */,
 				DCD15D5A1ECA8D170071BE0E /* PersonalViewController.m in Sources */,
 				DC3457701EB0F09F00D82E2D /* MainTabBarController.m in Sources */,
 				DC3BE2C21ECEDF51002480F1 /* UIButton+WebCache.m in Sources */,
-				DCD15D331EC43D160071BE0E /* SearchBar.m in Sources */,
 				DC34577E1EB4231800D82E2D /* MainTabBar.m in Sources */,
 				DC3457FD1EB832CB00D82E2D /* NavButton.m in Sources */,
 				DC34576F1EB0F09F00D82E2D /* MainNavController.m in Sources */,

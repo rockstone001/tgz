@@ -7,11 +7,12 @@
 //
 
 #import "MerchantsViewController.h"
-#import "HeaderView.h"
+//#import "HeaderView.h"
 #import "SearchViewController.h"
-#import "SearchResultViewController.h"
-#import <CoreLocation/CoreLocation.h>
+#import "MerchantSearchResultViewController.h"
 #import "MerchantCell.h"
+
+#import <CoreLocation/CoreLocation.h>
 
 @interface MerchantsViewController () <WaterFlowLayoutDelegate, CLLocationManagerDelegate, UICollectionViewDelegateFlowLayout, UIScrollViewDelegate, UISearchBarDelegate>
 
@@ -38,7 +39,7 @@ static NSString * const headerReuseIdentifier = @"headerID";
     
     // Register cell classes
     [self.collectionView registerClass:[MerchantCell class] forCellWithReuseIdentifier:reuseIdentifier];
-    [self.collectionView registerClass:[HeaderView class] forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:headerReuseIdentifier];
+//    [self.collectionView registerClass:[HeaderView class] forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:headerReuseIdentifier];
     
     ((WaterFlowLayout *)self.collectionView.collectionViewLayout).layoutDelegate = self;
 //    self.collectionView.scrol
@@ -197,9 +198,9 @@ static NSString * const headerReuseIdentifier = @"headerID";
 -(UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath
 {
     if ([kind isEqualToString:UICollectionElementKindSectionHeader]) {
-        HeaderView *view = [collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:headerReuseIdentifier forIndexPath:indexPath];
-        view.searchBar.delegate = self;
-        return view;
+//        HeaderView *view = [collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:headerReuseIdentifier forIndexPath:indexPath];
+//        view.searchBar.delegate = self;
+        return nil;
     }
     return nil;
 //    NSLog(@"%@", view);
@@ -215,11 +216,11 @@ static NSString * const headerReuseIdentifier = @"headerID";
     
     //5-17 使用navc + tableview + SearchCon 实现
     self.definesPresentationContext = YES;
-    SearchViewController *svc = [[SearchViewController alloc] initWithResultViewController:(UITableView *)[[SearchResultViewController alloc] init]];
-    UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:svc];
-    //    nav.modalPresentationStyle = UIModalPresentationPopover;
-    nav.modalTransitionStyle = 2;
-    [self presentViewController:nav animated:YES completion:nil];
+//    SearchViewController *svc = [[SearchViewController alloc] initWithResultViewController:(UITableView *)[[MerchantSearchResultViewController alloc] init]];
+//    UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:svc];
+//    //    nav.modalPresentationStyle = UIModalPresentationPopover;
+//    nav.modalTransitionStyle = 2;
+//    [self presentViewController:nav animated:YES completion:nil];
 }
 
 @end

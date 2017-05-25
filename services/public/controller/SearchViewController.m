@@ -7,9 +7,8 @@
 //
 
 #import "SearchViewController.h"
-#import "SearchHistoryView.h"
 
-@interface SearchViewController () <UISearchBarDelegate, SearchHistoryDelegate>
+@interface SearchViewController () <UISearchBarDelegate>
 
 @end
 
@@ -23,6 +22,7 @@
     
     [self initSearchBar];
     [self initResultVc];
+    [self searchBar:_searchBar textDidChange:@""];
 }
 
 
@@ -35,7 +35,7 @@
     _searchBar.frame = frame;
     //显示cancel button
     _searchBar.showsCancelButton = YES;
-    _searchBar.placeholder = kSearchPlaceHolder;
+    _searchBar.placeholder = _type;
     _searchBar.delegate = self;
     
     [[UIBarButtonItem appearanceWhenContainedInInstancesOfClasses:@[[UISearchBar class]]] setTitle:kCancelText];
@@ -43,6 +43,7 @@
     
     [self.view addSubview:_searchBar];
     [_searchBar becomeFirstResponder];
+    
 }
 
 -(void)initResultVc
@@ -51,15 +52,8 @@
     CGRect searchBarFrame = _searchBar.frame;
     frame.origin.y += searchBarFrame.origin.y + searchBarFrame.size.height;
     frame.size.height -= frame.origin.y;
-    _resultVc.tableView.frame = frame;
-    [self.view addSubview:_resultVc.tableView];
-    
-    SearchHistoryView *historyView = [[SearchHistoryView alloc] init];
-    historyView.delegate = self;
-    _resultVc.tableView.tableHeaderView = historyView;
-    [_resultVc setData:nil];
-    [_resultVc.tableView reloadData];
-    
+    ((UIViewController *)_resultVc).view.frame = frame;
+    [self.view addSubview:((UIViewController *)_resultVc).view];    
 }
 
 -(void)scrollViewDidScroll:(UIScrollView *)scrollView
@@ -82,49 +76,29 @@
 }
 */
 
--(instancetype)initWithResultViewController:(UITableViewController <SearchViewDelegate>*)resultVc
+//构造函数
+-(instancetype)initWithResultViewController:(id)resultVc withType:(NSString *)type
 {
     if (self = [super init]) {
         self.resultVc = resultVc;
+        self.type = type;
         [self addChildViewController:resultVc];
     }
     return self;
 }
 
+//取消搜索
 -(void)searchBarCancelButtonClicked:(UISearchBar *)searchBar
 {
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
+//搜索框值改变的响应
 -(void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText
 {
-    NSLog(@"%@", searchText);
-    if ([[searchText stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]] isEqualToString:@""]) {
-        SearchHistoryView *historyView = [[SearchHistoryView alloc] init];
-        historyView.delegate = self;
-        _resultVc.tableView.tableHeaderView = historyView;
-        [_resultVc setData:nil];
-        [_resultVc.tableView reloadData];
-        //        srvc.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
-    } else {
-        _resultVc.tableView.tableHeaderView = nil;
-//        [self getSearchResult:keyword];
-        //        srvc.tableView.separatorStyle = UITableViewCellSeparatorStyleSingleLine;
-        [_resultVc getSearchResult:searchText];
+    if ([_resultVc respondsToSelector:@selector(searchView: refreshSearchResult:)]) {
+        [_resultVc searchView:self refreshSearchResult:searchText];
     }
-}
-
--(void)SearchHistory:(SearchHistoryView *)view closeBtnClicked:(NSString *)text
-{
-    [_resultVc.tableView reloadData];
-}
-
--(void)SearchHistory:(SearchHistoryView *)view textBtnClicked:(NSString *)text
-{
-    self.searchBar.text = text;
-    [self searchBar:_searchBar textDidChange:text];
-    [self.searchBar resignFirstResponder];
-    [self setCancelBtnEnabled];
 }
 
 -(void)searchBarSearchButtonClicked:(UISearchBar *)searchBar
@@ -156,5 +130,6 @@
     UIButton *cancelBtn = [_searchBar valueForKey:@"cancelButton"]; //首先取出cancelBtn
     cancelBtn.enabled = YES;
 }
+
 
 @end

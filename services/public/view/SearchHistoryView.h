@@ -20,5 +20,8 @@
 
 @property (nonatomic, strong) NSMutableArray *data;
 @property (nonatomic, weak) id<SearchHistoryDelegate> delegate;
+@property (nonatomic, copy) NSString *type;
+
+-(instancetype)initWithType:(NSString *)type;
 
 @end

@@ -10,7 +10,6 @@
 //#import "PhotoBrowser.h"
 #import "UIImageView+WebCache.h"
 #import "UIScrollView+touch.h"
-#import "SearchController.h"
 
 @interface PhotoBrowserController () <UIScrollViewDelegate>
 
@@ -132,10 +131,10 @@
 
 -(void)touchesEnded:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
 {
-    if ([self.parentViewController isKindOfClass:[SearchController class]]) {
-        SearchController *svc = (SearchController *)self.parentViewController;
-        svc.searchBar.hidden = NO;
-    }
+//    if ([self.parentViewController isKindOfClass:[SearchController class]]) {
+//        SearchController *svc = (SearchController *)self.parentViewController;
+//        svc.searchBar.hidden = NO;
+//    }
     [self.view removeFromSuperview];
     [self removeFromParentViewController];
 }
