@@ -16,12 +16,12 @@
 @end
 
 
-@interface SearchHistoryView : UIView
+@interface SearchHistoryView : UICollectionReusableView
 
 @property (nonatomic, strong) NSMutableArray *data;
 @property (nonatomic, weak) id<SearchHistoryDelegate> delegate;
 @property (nonatomic, copy) NSString *type;
 
--(instancetype)initWithType:(NSString *)type;
+-(void)setDataWithType:(NSString *)type;
 
 @end

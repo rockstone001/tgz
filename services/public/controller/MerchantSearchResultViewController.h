@@ -10,4 +10,6 @@
 
 @interface MerchantSearchResultViewController : UICollectionViewController
 
+@property (nonatomic, copy) NSString *type;
+
 @end

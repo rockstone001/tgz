@@ -33,8 +33,13 @@
 {
     if (!_currentColumn) {
         _currentColumn = [NSMutableArray array];
-        [_currentColumn addObject:@{@"x":@(kCellMargin), @"y":@(kCellMargin + kHeaderViewHeight)}];
-        [_currentColumn addObject:@{@"x":@(kCellMargin * 2 + self.cellWidth), @"y":@(kCellMargin + kHeaderViewHeight)}];
+        if (self.collectionView.tag == 0) {
+            [_currentColumn addObject:@{@"x":@(kCellMargin), @"y":@(kCellMargin + kHeaderViewHeight)}];
+            [_currentColumn addObject:@{@"x":@(kCellMargin * 2 + self.cellWidth), @"y":@(kCellMargin + kHeaderViewHeight)}];
+        } else {
+            [_currentColumn addObject:@{@"x":@(kCellMargin), @"y":@(kCellMargin)}];
+            [_currentColumn addObject:@{@"x":@(kCellMargin * 2 + self.cellWidth), @"y":@(kCellMargin)}];
+        }
     }
     return _currentColumn;
 }
@@ -49,10 +54,11 @@
     self.currentColumn = nil;
     
     //    NSLog(@"all attrs = %@", self.attrs);
-    
-    UICollectionViewLayoutAttributes *headerAttrs = [UICollectionViewLayoutAttributes layoutAttributesForSupplementaryViewOfKind:UICollectionElementKindSectionHeader withIndexPath:[NSIndexPath indexPathWithIndex:0]];
-    headerAttrs.frame = CGRectMake(0, 0, self.collectionView.bounds.size.width, kHeaderViewHeight);
-    [self.attrs addObject:headerAttrs];
+    if (self.collectionView.tag == 0) { //tag ==0 时 默认有headerview
+        UICollectionViewLayoutAttributes *headerAttrs = [UICollectionViewLayoutAttributes layoutAttributesForSupplementaryViewOfKind:UICollectionElementKindSectionHeader withIndexPath:[NSIndexPath indexPathWithIndex:0]];
+        headerAttrs.frame = CGRectMake(0, 0, self.collectionView.bounds.size.width, kHeaderViewHeight);
+        [self.attrs addObject:headerAttrs];
+    }
     
 }
 

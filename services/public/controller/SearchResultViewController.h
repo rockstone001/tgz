@@ -16,6 +16,8 @@
 #import "DetailViewController.h"
 #import "PhotoBrowserController.h"
 
+#import "UITableView+touch.h"
+
 @interface SearchResultViewController : UITableViewController <ServiceInfoCellDelegate, ServiceInfoCollectionCellDelegate, SearchViewDelegate, SearchHistoryDelegate>
 
 @property (nonatomic, strong) NSArray *data;

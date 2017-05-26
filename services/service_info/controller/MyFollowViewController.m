@@ -60,7 +60,9 @@
     //取消分割线
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     
-    SearchHeaderView *hv = [[SearchHeaderView alloc] initWithFrame:self.view.bounds withType:kSearchPlaceHolder];
+    SearchHeaderView *hv = [[SearchHeaderView alloc] initWithFrame:self.view.bounds];
+    hv.type = kSearchPlaceHolder;
+    [hv addSearchBar];
     hv.searchBar.delegate = self;
     self.tableView.tableHeaderView = hv;
     

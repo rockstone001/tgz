@@ -8,8 +8,9 @@
 
 #import "MerchantCell.h"
 #import "DistanceButton.h"
-#import "UIImageView+AFNetworking.h"
+//#import "UIImageView+AFNetworking.h"
 #import "NSString+extension.h"
+#import "UIImageView+WebCache.h"
 
 //cell里子视图的间隔
 #define kCellMargin 8
@@ -69,7 +70,7 @@
     //商家头像
     _icon = [[UIImageView alloc] init];
     _icon.bounds = CGRectMake(0, 0, kIconWidth, kIconWidth);
-    [_icon setImageWithURL:[NSURL URLWithString:merchant.icon]];
+    [_icon sd_setImageWithURL:[NSURL URLWithString:merchant.icon]];
     _icon.layer.cornerRadius = kIconWidth * 0.5;
     _icon.layer.masksToBounds = YES;
     //商家的名字
@@ -108,7 +109,7 @@
     
     //商家的宣传图
     _logo = [[UIImageView alloc] init];
-    [_logo setImageWithURL:[NSURL URLWithString:merchant.logo]];
+    [_logo sd_setImageWithURL:[NSURL URLWithString:merchant.logo]];
     
     CGFloat imageHeight = [merchant.imageHeight floatValue] / [merchant.imageWidth floatValue] * _cellWidth;
     _logo.bounds = CGRectMake(0, 0, _cellWidth, imageHeight);

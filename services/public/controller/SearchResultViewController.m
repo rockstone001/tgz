@@ -7,9 +7,6 @@
 //
 
 #import "SearchResultViewController.h"
-#import "SearchViewController.h"
-#import "UITableView+touch.h"
-
 
 #define kSearchCellID @"searchCellID"
 
@@ -37,7 +34,7 @@
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
-    self.tableView.backgroundColor = kLightGrayBG;
+//    self.tableView.backgroundColor = kLightGrayBG;
     self.tableView.delegate = self;
 }
 
@@ -172,7 +169,8 @@
 {
     if ([searchText isEqualToString:@""]) {
         //搜索关键字为空 显示搜索历史
-        SearchHistoryView *historyView = [[SearchHistoryView alloc] initWithType:kSearchPlaceHolder];
+        SearchHistoryView *historyView = [[SearchHistoryView alloc] init];
+        [historyView setDataWithType:kSearchPlaceHolder];
         historyView.delegate = self;
         self.tableView.tableHeaderView = historyView;
         self.data = nil;

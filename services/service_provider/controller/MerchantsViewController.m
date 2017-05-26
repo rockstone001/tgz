@@ -7,10 +7,10 @@
 //
 
 #import "MerchantsViewController.h"
-//#import "HeaderView.h"
 #import "SearchViewController.h"
 #import "MerchantSearchResultViewController.h"
 #import "MerchantCell.h"
+#import "SearchHeaderView.h"
 
 #import <CoreLocation/CoreLocation.h>
 
@@ -39,7 +39,7 @@ static NSString * const headerReuseIdentifier = @"headerID";
     
     // Register cell classes
     [self.collectionView registerClass:[MerchantCell class] forCellWithReuseIdentifier:reuseIdentifier];
-//    [self.collectionView registerClass:[HeaderView class] forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:headerReuseIdentifier];
+    [self.collectionView registerClass:[SearchHeaderView class] forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:headerReuseIdentifier];
     
     ((WaterFlowLayout *)self.collectionView.collectionViewLayout).layoutDelegate = self;
 //    self.collectionView.scrol
@@ -198,9 +198,11 @@ static NSString * const headerReuseIdentifier = @"headerID";
 -(UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath
 {
     if ([kind isEqualToString:UICollectionElementKindSectionHeader]) {
-//        HeaderView *view = [collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:headerReuseIdentifier forIndexPath:indexPath];
-//        view.searchBar.delegate = self;
-        return nil;
+        SearchHeaderView *view = [collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:headerReuseIdentifier forIndexPath:indexPath];
+        view.type = kMerchantSearchPlaceHolder;
+        [view addSearchBar];
+        view.searchBar.delegate = self;
+        return view;
     }
     return nil;
 //    NSLog(@"%@", view);
@@ -211,16 +213,17 @@ static NSString * const headerReuseIdentifier = @"headerID";
 //    NSLog(@"hello ");
 }
 
+
+#pragma mark <UISearchBarDelegate>
 - (void)searchBarTextDidBeginEditing:(UISearchBar *)searchBar
 {
-    
-    //5-17 使用navc + tableview + SearchCon 实现
     self.definesPresentationContext = YES;
-//    SearchViewController *svc = [[SearchViewController alloc] initWithResultViewController:(UITableView *)[[MerchantSearchResultViewController alloc] init]];
-//    UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:svc];
-//    //    nav.modalPresentationStyle = UIModalPresentationPopover;
-//    nav.modalTransitionStyle = 2;
-//    [self presentViewController:nav animated:YES completion:nil];
+    SearchViewController *svc = [[SearchViewController alloc] initWithResultViewController:[[MerchantSearchResultViewController alloc] initWithCollectionViewLayout:[[WaterFlowLayout alloc] init]] withType:kMerchantSearchPlaceHolder];
+    UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:svc];
+    //    nav.modalPresentationStyle = UIModalPresentationPopover;
+    //    svc.modalPresentationStyle = UIModalPresentationPopover;
+    nav.modalTransitionStyle = 2;
+    [self presentViewController:nav animated:YES completion:nil];
 }
 
 @end

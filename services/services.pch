@@ -32,6 +32,8 @@
 #define kGetSearchResult @"services/get_search_result"
 //获取商家
 #define kGetMerchants @"services/get_merchants"
+//搜索商家
+#define kSearchMerchants @"services/search_merchants"
 
 //点赞
 #define kLike @"services/like"

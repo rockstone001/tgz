@@ -7,8 +7,9 @@
 //
 
 #import "ServiceInfoCell.h"
-#import "UIImageView+AFNetworking.h"
+//#import "UIImageView+AFNetworking.h"
 #import "NSString+extension.h"
+#import "UIImageView+WebCache.h"
 //cell里子视图的间隔
 #define kCellMargin 10
 //cell里名字的高度
@@ -160,7 +161,8 @@
 {
     self.imageList = info.images;
     //设置数据
-    [self.avatar setImageWithURL:[NSURL URLWithString:info.avatar] placeholderImage:[UIImage imageNamed:@"avatar_default"]];
+    [self.avatar sd_setImageWithURL:[NSURL URLWithString:info.avatar] placeholderImage:[UIImage imageNamed:@"avatar_default"]];
+//    [self.avatar setImageWithURL:[NSURL URLWithString:info.avatar] placeholderImage:[UIImage imageNamed:@"avatar_default"]];
     [self.username setText:info.username];
     [self.createdAt setText:info.createdAt];
     [self.text setText:info.text];
@@ -268,7 +270,8 @@
     UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:kCollectionCellId forIndexPath:indexPath];
     UIImageView *imageView = [[UIImageView alloc] initWithFrame:cell.bounds];
     
-    [imageView setImageWithURL:[NSURL URLWithString:self.imageList[indexPath.row]]];
+    [imageView sd_setImageWithURL:[NSURL URLWithString:self.imageList[indexPath.row]]];
+//    [imageView setImageWithURL:[NSURL URLWithString:self.imageList[indexPath.row]]];
     [cell.contentView addSubview:imageView];
     
     return cell;

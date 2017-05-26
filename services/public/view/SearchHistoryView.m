@@ -24,21 +24,17 @@
     
 }*/
 
--(instancetype)initWithType:(NSString *)type
+-(void)setDataWithType:(NSString *)type
 {
-    if (self = [super init]) {
-        _type = type;
-        NSArray *data = nil;
-        if ([_type isEqualToString:kSearchPlaceHolder]) {
-            data = @[@"毛毛虫", @"折扣", @"优惠", @"樱桃", @"好喝的奶茶", @"女装新品"];
-        } else if ([_type isEqualToString:@"商家"]) {
-            data = @[@"大秦猪肉", @"爱尚果缘", @"格林豪泰", @"加多宝", @"好喝的奶茶", @"最便宜的女装店"];
-        }
-        self.data = [NSMutableArray arrayWithArray:data];
-        [self setHistory];
-        NSLog(@"history here");
+    _type = type;
+    NSArray *data = nil;
+    if ([_type isEqualToString:kSearchPlaceHolder]) {
+        data = @[@"毛毛虫", @"折扣", @"优惠", @"樱桃", @"好喝的奶茶", @"女装新品"];
+    } else if ([_type isEqualToString:kMerchantSearchPlaceHolder]) {
+        data = @[@"大秦猪肉", @"爱尚果缘", @"格林豪泰", @"加多宝", @"好喝的奶茶", @"最便宜的女装店"];
     }
-    return self;
+    self.data = [NSMutableArray arrayWithArray:data];
+    [self setHistory];
 }
 
 -(void)setHistory

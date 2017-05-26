@@ -8,12 +8,13 @@
 
 #import <UIKit/UIKit.h>
 
-@interface SearchHeaderView : UIView
+@interface SearchHeaderView : UICollectionReusableView
 
 @property (nonatomic, weak) UISearchBar *searchBar;
 
 @property (nonatomic, copy) NSString *type;
 
--(instancetype)initWithFrame:(CGRect)frame withType:(NSString *)type;
+-(instancetype)initWithFrame:(CGRect)frame;
+-(void)addSearchBar;
 
 @end

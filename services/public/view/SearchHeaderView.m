@@ -16,13 +16,10 @@
 
 @implementation SearchHeaderView
 
--(instancetype)initWithFrame:(CGRect)frame withType:(NSString *)type
+-(instancetype)initWithFrame:(CGRect)frame
 {
     frame.size.height = kSearchBarHeight;
     if (self = [super initWithFrame:frame]) {
-        //        self.backgroundColor = [UIColor blueColor];
-        self.type = type;
-        [self addSearchBar];
     }
     return self;
 }
