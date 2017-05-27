@@ -178,7 +178,9 @@
     //优惠券
     NSMutableArray *marr = [NSMutableArray array];
     for (Coupon *coupon in info.coupons) {
-        [marr addObject:[[CouponView alloc] initWithPrice:coupon.price withDesc:coupon.desc]];
+        CouponView *couponView = [[CouponView alloc] initWithPrice:coupon.price withDesc:coupon.desc];
+        couponView.isExpired = coupon.isExpired;
+        [marr addObject:couponView];
     }
     _couponViews = marr;
 }

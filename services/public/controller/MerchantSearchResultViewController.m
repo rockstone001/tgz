@@ -218,7 +218,7 @@ static NSString * const headerReuseIdForSearch = @"headerID";
         self.collectionView.tag = 0;
         [self.collectionView reloadData];
     } else {
-        NSLog(@"text === %@", searchText);
+//        NSLog(@"text === %@", searchText);
         //不为空 显示搜索结果
         self.collectionView.tag = 1;
         [self refreshList];

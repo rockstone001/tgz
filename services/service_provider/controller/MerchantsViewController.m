@@ -143,6 +143,7 @@ static NSString * const headerReuseIdentifier = @"headerID";
     if ([self.type isEqualToString:@"附近"]) {
         if (!self.longitude) {
             if ([CLLocationManager locationServicesEnabled]) { // 判断是否打开了位置服务
+                NSLog(@"location ===");
                 [self.locManager startUpdatingLocation]; // 开始更新位置
             }
             return;

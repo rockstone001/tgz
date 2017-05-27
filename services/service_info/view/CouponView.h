@@ -13,5 +13,7 @@
 @property (nonatomic, weak) UIButton *textBtn;
 @property (nonatomic, weak) UIButton *getBtn;
 
+@property (nonatomic, assign) BOOL isExpired;
+
 -(instancetype)initWithPrice:(NSString *)price withDesc:(NSString *)desc;
 @end

@@ -69,6 +69,7 @@
 #define kLightBlue [UIColor colorWithRed:93/255.0 green:112/255.0 blue:151/255.0 alpha:1]
 #define kSpacingLineColor [UIColor colorWithRed:217/255.0 green:217/255.0 blue:217/255.0 alpha:1]
 #define kSearchBarColor [UIColor colorWithRed:201/255.0 green:201/255.0 blue:206/255.0 alpha:1]
+#define kOrange [UIColor colorWithRed:253/255.0 green:135/255.0 blue:40/255.0 alpha:1]
 #endif /* services_pch */
 
 

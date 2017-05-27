@@ -18,6 +18,7 @@
 @property (nonatomic, copy) NSString *imageWidth;
 @property (nonatomic, copy) NSString *imageHeight;
 @property (nonatomic, copy) NSString *desc;
+@property (nonatomic, assign) BOOL followed;
 
 -(instancetype)initWithDict:(NSDictionary *)dict;
 +(instancetype)merchant:(NSDictionary *)dict;

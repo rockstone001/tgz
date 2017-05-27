@@ -19,7 +19,8 @@
     // Do any additional setup after loading the view.
     self.navigationController.navigationBar.hidden = NO;
     [self initNavButton];
-    self.view.backgroundColor = [UIColor greenColor];
+    self.view.backgroundColor = [UIColor whiteColor];
+    self.title = @"服务圈";
 }
 
 - (void)didReceiveMemoryWarning {

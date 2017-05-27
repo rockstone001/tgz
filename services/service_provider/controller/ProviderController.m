@@ -49,6 +49,7 @@
 -(void)viewWillAppear:(BOOL)animated
 {
     self.centerBar.hidden = NO;
+    
 }
 
 -(void)initChildVC
@@ -60,6 +61,7 @@
     [self.contentView addSubview:vc1.view];
     CGRect frame = self.contentView.bounds;
     vc1.view.frame = frame;
+    [vc1 refreshList];
     
     MerchantsViewController *vc2 = [[MerchantsViewController alloc] initWithCollectionViewLayout:[[WaterFlowLayout alloc] init]];
     vc2.type = @"推荐";

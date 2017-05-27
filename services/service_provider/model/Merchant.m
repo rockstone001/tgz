@@ -15,6 +15,9 @@
     if (self = [super init])
     {
         [self setValuesForKeysWithDictionary:dict];
+        if (dict[@"followed"] && [dict[@"followed"] boolValue]) {
+            self.followed = YES;
+        }
     }
     return self;
 }

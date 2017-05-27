@@ -89,6 +89,9 @@
     [_follows setImage:[UIImage imageNamed:@"heart"] forState:UIControlStateSelected];
     [_follows setTitle:merchant.follows forState:UIControlStateNormal];
     _follows.bounds = CGRectMake(0, 0, kBtnWidth, kBtnHeight);
+    if (merchant.followed) {
+        _follows.selected = YES;
+    }
     
     //关注商家按钮
     _follow = [[UIButton alloc] init];
@@ -96,9 +99,13 @@
     [_follow setTitle:@"已关注" forState:UIControlStateSelected];
     _follow.titleLabel.font = [UIFont systemFontOfSize:kSubTextSize];
     [_follow setBackgroundColor:kSpacingLineColor];
-    [_follow setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    [_follow setTitleColor:[UIColor whiteColor] forState:UIControlStateSelected];
+    [_follow setTitleColor:kOrange forState:UIControlStateNormal];
     _follow.layer.cornerRadius = 5;
     _follow.layer.masksToBounds = YES;
+    if (merchant.followed) {
+        _follow.selected = YES;
+    }
     
     _follow.bounds = CGRectMake(0, 0, kFollowBtnWidth, kBtnHeight);
     //商家的距离

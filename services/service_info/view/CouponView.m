@@ -63,4 +63,15 @@
     return self;
 }
 
+-(void)setIsExpired:(BOOL)isExpired
+{
+    if (isExpired) {
+        _textBtn.enabled = NO;
+        _getBtn.enabled = NO;
+    } else {
+        _textBtn.enabled = YES;
+        _getBtn.enabled = YES;
+    }
+}
+
 @end

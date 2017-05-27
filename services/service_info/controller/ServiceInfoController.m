@@ -40,8 +40,7 @@
 //        self.navigationController.navigationBar.hidden = YES;
 //        self.tabBarController.tabBar.hidden = YES;
 //    });
-    
-    
+//    self.navigationItem.backBarButtonItem.title = @"首页";
 }
 
 -(void)viewWillDisappear:(BOOL)animated
